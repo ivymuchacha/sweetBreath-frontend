@@ -35,4 +35,8 @@ module.exports = {
       template: "./index.html",
     }),
   ],
+  devServer: {
+    port: 8080,
+    open: true,
+  },
 };
