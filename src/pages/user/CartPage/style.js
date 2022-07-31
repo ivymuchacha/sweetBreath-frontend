@@ -1,0 +1,190 @@
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { H1, H4, H5, MEDIA_QUERY } from "../../../constants/style";
+
+export const CartContainer = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+
+  * {
+    box-sizing: border-box;
+  }
+`;
+
+export const CartTitle = styled(H1)`
+  border-bottom: 1px solid ${(props) => props.theme.colors.neutralLightGrey};
+  padding-bottom: 6px;
+`;
+
+export const CartContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+
+  ${MEDIA_QUERY} {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+export const CartListContainer = styled.div`
+  width: 500px;
+  height: 100%;
+  padding: 10px 30px;
+  border: 1px solid ${(props) => props.theme.colors.neutralLightGrey};
+
+  ${MEDIA_QUERY} {
+    max-width: 350px;
+    margin: 0 10px;
+    padding: 10px;
+  }
+`;
+
+export const CartItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+
+  ${MEDIA_QUERY} {
+    margin: 8px 0;
+  }
+`;
+
+export const ImgLink = styled(Link)`
+  width: 120px;
+  height: 120px;
+  border-radius: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  ${MEDIA_QUERY} {
+    width: 100px;
+    height: 100px;
+  }
+`;
+
+export const CartItemContent = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 20px;
+  flex: 1;
+
+  ${MEDIA_QUERY} {
+    margin-left: 10px;
+  }
+`;
+
+export const OderItemDetails = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const CartItemTitle = styled(Link)`
+  margin-bottom: 5px;
+  span {
+    color: ${(props) => props.theme.colors.neutralBlack};
+    font-size: ${(props) => props.theme.fontSize.h4};
+    font-weight: bold;
+  }
+
+  :hover {
+    span {
+      border-bottom: 1px solid ${(props) => props.theme.colors.neutralBlack};
+    }
+  }
+`;
+
+export const CartItemFeature = styled(H5)`
+  margin: 4px 0;
+  color: ${(props) => props.theme.colors.neutralDarkGrey};
+`;
+
+export const CounterArea = styled(H4)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+
+  span {
+    width: 40px;
+    height: 40px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const CartItemPrice = styled(H4)`
+  margin: 0;
+`;
+
+export const CartSummaryContainer = styled.div`
+  width: 360px;
+  height: 300px;
+  border: 1px solid ${(props) => props.theme.colors.neutralLightGrey};
+  padding: 10px 20px;
+
+  ${MEDIA_QUERY} {
+    margin-top: 30px;
+  }
+`;
+
+export const Subtotal = styled(H4)`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+`;
+
+export const OrderTotalPrice = styled(H4)`
+  text-align: right;
+  padding-top: 20px;
+  border-top: 1px solid ${(props) => props.theme.colors.neutralLightGrey};
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+
+  a {
+    border-radius: 4px;
+    padding: 10px 32px;
+    font-size: ${(props) => props.theme.fontSize.h5};
+    transition: ease-in-out 0.1s;
+  }
+
+  ${MEDIA_QUERY} {
+    margin: 10px 0 20px 0;
+    justify-content: center;
+  }
+`;
+
+export const SubmitButton = styled(Link)`
+  color: ${(props) => props.theme.colors.neutralWhite};
+  background: ${(props) => props.theme.colors.mainPrimary};
+
+  :hover {
+    color: ${(props) => props.theme.colors.neutralPaleGrey};
+    background: ${(props) => props.theme.colors.uiNegative};
+  }
+`;
+
+export const CartEmpty = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: ${(props) => props.theme.fontSize.h3};
+  padding: 100px 0;
+`;
+
+export const BackToHome = styled(SubmitButton)`
+  border-radius: 4px;
+  padding: 10px 32px;
+  font-size: ${(props) => props.theme.fontSize.button};
+  transition: ease-in-out 0.1s;
+`;
