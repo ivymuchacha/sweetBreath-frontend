@@ -9,7 +9,7 @@ export const THEME = {
     body: "14px",
     button: "14px",
     caption1: "12px",
-    caption2: "12px",
+    caption2: "12px"
   },
 
   colors: {
@@ -27,6 +27,6 @@ export const THEME = {
     neutralDarkGrey: "#82828b",
     neutralBlack: "#000000",
     neutralWhite: "#ffffff",
-    neutralEmpty: "rgba(198 198 198, 0.17)",
-  },
-};
+    neutralEmpty: "rgba(198 198 198, 0.17)"
+  }
+} as const;

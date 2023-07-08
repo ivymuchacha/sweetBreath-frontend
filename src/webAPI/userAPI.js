@@ -5,14 +5,14 @@ export const register = (fullName, username, email, password) => {
   return fetch(`${BASE_URL}/register`, {
     method: "POST",
     headers: {
-      "content-type": "application/json",
+      "content-type": "application/json"
     },
     body: JSON.stringify({
       fullName,
       username,
       email,
-      password,
-    }),
+      password
+    })
   }).then((res) => res.json());
 };
 
@@ -20,12 +20,12 @@ export const login = (username, password) => {
   return fetch(`${BASE_URL}/login`, {
     method: "POST",
     headers: {
-      "content-type": "application/json",
+      "content-type": "application/json"
     },
     body: JSON.stringify({
       username,
-      password,
-    }),
+      password
+    })
   }).then((res) => res.json());
 };
 
@@ -33,8 +33,8 @@ export const getMe = () => {
   const token = getAuthToken();
   return fetch(`${BASE_URL}/me`, {
     headers: {
-      authorization: `Bearer ${token}`,
-    },
+      authorization: `Bearer ${token}`
+    }
   })
     .then((res) => res.json())
     .then((data) => {
@@ -48,8 +48,8 @@ export const getUser = () => {
   return fetch(`${BASE_URL}/user`, {
     method: "GET",
     headers: {
-      authorization: `Bearer ${token}`,
-    },
+      authorization: `Bearer ${token}`
+    }
   })
     .then((res) => res.json())
     .then((data) => {
@@ -63,8 +63,8 @@ export const getAllUser = () => {
   return fetch(`${BASE_URL}/users`, {
     method: "GET",
     headers: {
-      authorization: `Bearer ${token}`,
-    },
+      authorization: `Bearer ${token}`
+    }
   }).then((res) => res.json());
 };
 
@@ -74,14 +74,14 @@ export const editUser = (fullname, email, birthday, address) => {
     method: "PUT",
     headers: {
       authorization: `Bearer ${token}`,
-      "content-type": "application/json",
+      "content-type": "application/json"
     },
     body: JSON.stringify({
       fullname: `${fullname}`,
       email: `${email}`,
       birthday: `${birthday}`,
-      address: `${address}`,
-    }),
+      address: `${address}`
+    })
   })
     .then((res) => res.json())
     .then((data) => {
@@ -95,11 +95,11 @@ export const editUserStatus = (id, is_admin, status) => {
     method: "PUT",
     headers: {
       authorization: `Bearer ${token}`,
-      "content-type": "application/json",
+      "content-type": "application/json"
     },
     body: JSON.stringify({
       is_admin,
-      status,
-    }),
+      status
+    })
   }).then((res) => res.json());
 };

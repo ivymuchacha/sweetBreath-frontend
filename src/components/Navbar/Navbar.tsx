@@ -6,7 +6,6 @@ import magnifying from "../icon/magnifying.png";
 import facebook from "../icon/facebook.png";
 import instagram from "../icon/instagram.png";
 import logout from "../icon/logout.png";
-import { AuthContext, LoadingContext } from "../../contexts";
 import { setAuthToken } from "../../utils";
 import { Logo, NavButton, IconButton, InstagramButton } from "./button";
 import {
@@ -16,14 +15,15 @@ import {
   LogOutButton,
   IconContent,
   LogOutImg,
-  LoadingGetMe,
+  LoadingGetMe
 } from "./style";
+import { useAuthContext, useLoadingContext } from "../../context/hooks";
 
 export default function Navbar() {
   const location = useLocation();
   const history = useHistory();
-  const { isLoadingGetMe } = useContext(LoadingContext);
-  const { user, setUser } = useContext(AuthContext);
+  const { isLoadingGetMe } = useLoadingContext();
+  const { user, setUser } = useAuthContext();
   const handleLogout = () => {
     setAuthToken("");
     setUser(null);
@@ -32,35 +32,33 @@ export default function Navbar() {
     }
   };
   return (
-    <NavbarContent id="top">
-      <Logo>
-        <NavButton route="/" title={"SWEET_BREATH"} />
-      </Logo>
+    <NavbarContent id='top'>
+      <Logo />
       <FunctionBar>
-        <NavButton route="/news" title={"最新消息"} />
-        <NavButton route="/products" title={"商品"} />
-        <NavButton route="/about" title={"關於我們"} />
-        <NavButton route="/contact" title={"聯絡我們"} />
+        <NavButton route='/news' title={"最新消息"} />
+        <NavButton route='/products' title={"商品"} />
+        <NavButton route='/about' title={"關於我們"} />
+        <NavButton route='/contact' title={"聯絡我們"} />
       </FunctionBar>
       <IconBar>
-        <IconButton route="/products" icon={magnifying} />
-        <IconButton route="/contact" icon={facebook} />
-        <InstagramButton route="/contact" icon={instagram} />
+        <IconButton route='/products' icon={magnifying} />
+        <IconButton route='/contact' icon={facebook} />
+        <InstagramButton route='/contact' icon={instagram} />
       </IconBar>
       <IconBar>
-        <IconButton route="/cart" icon={cart} />
+        <IconButton route='/cart' icon={cart} />
         {isLoadingGetMe ? (
           <LoadingGetMe>資料驗證中...</LoadingGetMe>
         ) : (
           <>
             {user ? (
-              <IconButton route="/member" icon={member} />
+              <IconButton route='/member' icon={member} />
             ) : (
-              <IconButton route="/login" icon={member} />
+              <IconButton route='/login' icon={member} />
             )}
             {user && (
-              <LogOutButton src={logout} onClick={handleLogout}>
-                <IconContent>
+              <LogOutButton onClick={handleLogout}>
+                <IconContent to=''>
                   <LogOutImg src={logout} />
                 </IconContent>
               </LogOutButton>

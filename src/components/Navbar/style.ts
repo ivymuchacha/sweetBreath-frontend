@@ -9,7 +9,7 @@ export const LogoContent = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 0px;
-  } ;
+  }
 `;
 
 export const NavbarContent = styled.div`
@@ -32,7 +32,7 @@ export const NavbarContent = styled.div`
     display: block;
     max-width: 768px;
     height: auto;
-  } ;
+  }
 `;
 
 export const ButtonContent = styled(Link)`
@@ -83,7 +83,7 @@ export const FunctionBar = styled.div`
   box-sizing: border-box;
   ${MEDIA_QUERY} {
     justify-content: center;
-  } ;
+  }
 `;
 
 export const IconBar = styled.div`
@@ -92,7 +92,7 @@ export const IconBar = styled.div`
   ${MEDIA_QUERY} {
     display: inline-flex;
     justify-content: center;
-  } ;
+  }
 `;
 
 export const LogoImg = styled.img`

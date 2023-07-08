@@ -7,21 +7,25 @@ import {
   ButtonText,
   IconContent,
   IconImg,
-  InstagramImg,
+  InstagramImg
 } from "./style";
 import { Link } from "react-router-dom";
 
-export function Logo() {
+export const Logo = () => {
   return (
     <LogoContent>
       <Link to={"/"}>
-        <LogoImg src={sweetBreath} alt="logo" />
+        <LogoImg src={sweetBreath} alt='logo' />
       </Link>
     </LogoContent>
   );
-}
+};
 
-export const NavButton = (props) => {
+interface NavButtonProps {
+  route: string;
+  title: string;
+}
+export const NavButton = (props: NavButtonProps) => {
   return (
     <ButtonContent to={props.route}>
       <ButtonText>{props.title}</ButtonText>
@@ -29,7 +33,11 @@ export const NavButton = (props) => {
   );
 };
 
-export const IconButton = (props) => {
+interface IconButtonProps {
+  route: string;
+  icon?: string;
+}
+export const IconButton = (props: IconButtonProps) => {
   return (
     <IconContent to={props.route}>
       <IconImg src={props.icon} />
@@ -37,7 +45,7 @@ export const IconButton = (props) => {
   );
 };
 
-export const InstagramButton = (props) => {
+export const InstagramButton = (props: IconButtonProps) => {
   return (
     <IconContent to={props.route}>
       <InstagramImg src={props.icon} />
