@@ -13,7 +13,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: ${theme.fontSize.h4};
+  font-size: ${({theme})=>theme.fontSize.h4};
 
   ${MEDIA_QUERY} {
     padding: 0 20px;
@@ -55,9 +55,9 @@ export const TabUserItemTitle = styled.div`
 export const TabUserItemValue = styled.div``;
 
 export const TabUserItemValueNew = styled(Input)`
-  color: ${theme.colors.neutralBlack};
-  font-size: ${theme.fontSize.bodyLarge};
-  border-bottom: 1px solid ${theme.colors.neutralLightGrey};
+  color: ${({theme})=>theme.colors.neutralBlack};
+  font-size: ${({theme})=>theme.fontSize.bodyLarge};
+  border-bottom: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
   padding: 8px;
   margin: 0 10px;
   visibility: ${(props) => (props.editable ? "" : "hidden")};
@@ -77,17 +77,17 @@ export const EditButton = styled.button`
   width: 50px;
   height: 30px;
   border-radius: 4px;
-  background: ${theme.colors.mainPrimary};
-  font-size: ${theme.fontSize.h5};
+  background: ${({theme})=>theme.colors.mainPrimary};
+  font-size: ${({theme})=>theme.fontSize.h5};
   color: #ffffff;
   cursor: pointer;
   :hover {
-    background: ${theme.colors.uiNegative};
+    background: ${({theme})=>theme.colors.uiNegative};
   }
 `;
 
 export const Message = styled.div`
-  color: ${theme.colors.mainPrimary};
+  color: ${({theme})=>theme.colors.mainPrimary};
   margin: 0 20px 0 0;
   align-items: center;
 `;
@@ -100,16 +100,16 @@ export const TabOrderGroup = styled.div`
 
 export const TabOrderItem = styled.div`
   width: 66%;
-  border: 3px solid ${theme.colors.neutralLightGrey};
+  border: 3px solid ${({theme})=>theme.colors.neutralLightGrey};
   padding: 30px;
   line-height: 30px;
-  font-size: ${theme.fontSize.h4};
+  font-size: ${({theme})=>theme.fontSize.h4};
 
   :hover {
-    border: 3px solid ${theme.colors.mainPrimary};
+    border: 3px solid ${({theme})=>theme.colors.mainPrimary};
 
     #totalPrize {
-      background: ${theme.colors.mainSecondary};
+      background: ${({theme})=>theme.colors.mainSecondary};
     }
   }
   ${MEDIA_QUERY} {
@@ -118,13 +118,13 @@ export const TabOrderItem = styled.div`
 `;
 
 export const TabOrderTop = styled.div`
-  border-bottom: 3px solid ${theme.colors.neutralPaleGrey};
+  border-bottom: 3px solid ${({theme})=>theme.colors.neutralPaleGrey};
   margin-bottom: 10px;
   padding-bottom: 10px;
 `;
 
 export const TabOrderCenter = styled.div`
-  border-bottom: 1px solid ${theme.colors.neutralPaleGrey};
+  border-bottom: 1px solid ${({theme})=>theme.colors.neutralPaleGrey};
   margin-bottom: 10px;
   padding-bottom: 10px;
 `;
@@ -138,10 +138,10 @@ export const TabOrderProduct = styled.div`
   justify-content: space-between;
   align-items: center;
   a {
-    color: ${theme.colors.neutralBlack};
+    color: ${({theme})=>theme.colors.neutralBlack};
 
     :hover {
-      border-bottom: 1px solid ${theme.colors.neutralBlack};
+      border-bottom: 1px solid ${({theme})=>theme.colors.neutralBlack};
     }
   }
 `;
@@ -169,31 +169,31 @@ export const OrderStatus = styled.div`
 `;
 
 export const OrderStatusLabel = styled.button`
-  background: ${theme.colors.neutralGrey};
-  font-size: ${theme.fontSize.bodyLarge};
-  color: ${theme.colors.neutralWhite};
+  background: ${({theme})=>theme.colors.neutralGrey};
+  font-size: ${({theme})=>theme.fontSize.bodyLarge};
+  color: ${({theme})=>theme.colors.neutralWhite};
   border-radius: 4px;
   padding: 6px;
   margin: 4px;
   cursor: pointer;
 
   ${MEDIA_QUERY} {
-    font-size: ${theme.fontSize.bodyLarge};
+    font-size: ${({theme})=>theme.fontSize.bodyLarge};
   }
 `;
 
 export const IsDoneLabel = styled(OrderStatusLabel)`
   ${(props) =>
-    (props.isCancel && `background: ${theme.colors.uiNegative}`) ||
+    (props.isCancel && `background: ${({theme})=>theme.colors.uiNegative}`) ||
     (props.isDone
-      ? `background: ${theme.colors.uiPositive}`
-      : `background: ${theme.colors.uiWarning}`)}
+      ? `background: ${({theme})=>theme.colors.uiPositive}`
+      : `background: ${({theme})=>theme.colors.uiWarning}`)}
 `;
 
 export const IsPaidLabel = styled(OrderStatusLabel)`
-  ${(props) => props.isPaid && `background: ${theme.colors.uiPositive}`}
+  ${(props) => props.isPaid && `background: ${({theme})=>theme.colors.uiPositive}`}
 `;
 
 export const IsSentLabel = styled(OrderStatusLabel)`
-  ${(props) => props.isSent && `background: ${theme.colors.uiPositive}`}
+  ${(props) => props.isSent && `background: ${({theme})=>theme.colors.uiPositive}`}
 `;

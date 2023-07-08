@@ -39,13 +39,13 @@ export const CategorySection = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  border-bottom: 1px solid ${theme.colors.neutralLightGrey};
-  background: ${theme.colors.neutralWhite};
+  border-bottom: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
+  background: ${({theme})=>theme.colors.neutralWhite};
 
   :hover {
-    background: ${theme.colors.neutralSnow};
+    background: ${({theme})=>theme.colors.neutralSnow};
     input {
-      border: 1px solid ${theme.colors.neutralGrey};
+      border: 1px solid ${({theme})=>theme.colors.neutralGrey};
       border-radius: 4px;
     }
   }
@@ -57,22 +57,22 @@ export const CategorySection = styled.div`
 `;
 
 export const CategoryNameLink = styled(Link)`
-  font-size: ${theme.fontSize.h3};
+  font-size: ${({theme})=>theme.fontSize.h3};
   padding: 20px;
   margin: 0;
-  color: ${theme.colors.neutralBlack};
+  color: ${({theme})=>theme.colors.neutralBlack};
 
   :hover {
-    color: ${theme.colors.mainPrimaryDark};
+    color: ${({theme})=>theme.colors.mainPrimaryDark};
   }
 `;
 
 export const Setting = styled.div``;
 
 export const SettingInput = styled(Input)`
-  color: ${theme.colors.neutralBlack};
-  font-size: ${theme.fontSize.bodyLarge};
-  border-bottom: 1px solid ${theme.colors.neutralLightGrey};
+  color: ${({theme})=>theme.colors.neutralBlack};
+  font-size: ${({theme})=>theme.fontSize.bodyLarge};
+  border-bottom: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
   padding: 8px;
   margin: 0 10px;
 `;
@@ -81,16 +81,16 @@ export const SettingButton = styled.button`
   padding: 6px 10px;
   margin-left: 20px;
   border-radius: 4px;
-  font-size: ${theme.fontSize.button};
+  font-size: ${({theme})=>theme.fontSize.button};
   color: ${(props) => props.theme.colors.neutralWhite};
   background: ${(props) => props.theme.colors.neutralDarkGrey};
-  color: ${theme.colors.neutralPaleGrey};
-  background: ${theme.colors.neutralDarkGrey};
+  color: ${({theme})=>theme.colors.neutralPaleGrey};
+  background: ${({theme})=>theme.colors.neutralDarkGrey};
   cursor: pointer;
 
   :hover {
-    color: ${theme.colors.neutralWhite};
-    background: ${theme.colors.uiNegative};
+    color: ${({theme})=>theme.colors.neutralWhite};
+    background: ${({theme})=>theme.colors.uiNegative};
   }
 
   ${MEDIA_QUERY} {
@@ -105,7 +105,7 @@ export const AddCategoryContainer = styled.div`
   margin: 20px;
   :hover {
     input {
-      border: 1px solid ${theme.colors.neutralGrey};
+      border: 1px solid ${({theme})=>theme.colors.neutralGrey};
       border-radius: 4px;
     }
   }
@@ -119,8 +119,8 @@ export const AddCategoryContainer = styled.div`
 export const AddInput = styled(SettingInput)``;
 
 export const AddButton = styled(SettingButton)`
-  color: ${theme.colors.neutralBlack};
-  background: ${theme.colors.uiWarning};
+  color: ${({theme})=>theme.colors.neutralBlack};
+  background: ${({theme})=>theme.colors.uiWarning};
 `;
 
 export const ErrorMessage = styled(H4)`
@@ -128,5 +128,5 @@ export const ErrorMessage = styled(H4)`
   padding: 0 20px;
   text-align: right;
   font-weight: 700;
-  color: ${theme.colors.uiNegative};
+  color: ${({theme})=>theme.colors.uiNegative};
 `;

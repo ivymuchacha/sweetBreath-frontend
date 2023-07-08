@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../constants/theme";
 import { H4, BodyLarge, Body } from "../../constants/style";
 import gitHubIcon from "../icon/gitHub.png";
 
 const FooterContent = styled.div`
   margin-top: 200px;
   padding-top: 20px;
-  background-color: ${theme.colors.neutralPaleGrey};
-  color: ${theme.colors.neutralDarkGrey};
+  background-color: ${({theme})=>theme.colors.neutralPaleGrey};
+  color: ${({theme})=>theme.colors.neutralDarkGrey};
   text-align: center;
 `;
 
@@ -31,7 +30,7 @@ const CopyrightContent = styled.div`
   padding: 10px;
   justify-content: center;
   border-top: 1px solid #8080801f;
-  color: ${theme.colors.neutralDarkGrey};
+  color: ${({theme})=>theme.colors.neutralDarkGrey};
 `;
 
 const CopyrightText = styled(Body)`
@@ -58,12 +57,12 @@ const ItemWrapper = styled.div`
 
 const SourceLink = styled.a`
   padding: 2px;
-  color: ${theme.colors.neutralDarkGrey};
+  color: ${({theme})=>theme.colors.neutralDarkGrey};
   text-decoration: none;
-  border: 1px solid ${theme.colors.neutralDarkGrey};
+  border: 1px solid ${({theme})=>theme.colors.neutralDarkGrey};
   border-radius: 5px;
   :hover {
-    background-color: ${theme.colors.neutralGrey};
+    background-color: ${({theme})=>theme.colors.neutralGrey};
     color: white;
   }
 `;

@@ -1,14 +1,14 @@
 import { getAuthToken } from "../utils";
 import { BASE_URL } from "./config";
 
-export const register = (fullname, username, email, password) => {
+export const register = (fullName, username, email, password) => {
   return fetch(`${BASE_URL}/register`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
     },
     body: JSON.stringify({
-      fullname,
+      fullName,
       username,
       email,
       password,
@@ -85,7 +85,6 @@ export const editUser = (fullname, email, birthday, address) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
       return data;
     });
 };

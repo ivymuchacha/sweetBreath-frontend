@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import { getProduct, getCategory } from "../../../webAPI/productAPI";
 import { LoadingContext } from "../../../contexts";
-import { theme } from "../../../constants/theme";
+import { THEME } from "../../../constants/theme";
 import Loading from "../../../components/Loading";
 import {
   Content,
@@ -191,7 +191,7 @@ export default function ProductPage() {
                             width: "32px",
                             height: "32px",
                             cursor: "pointer",
-                            color: theme.colors.mainPrimary,
+                            color: THEME.colors.mainPrimary,
                           }}
                           onClick={() => {
                             handleClickDown(featureItem.id);
@@ -203,7 +203,7 @@ export default function ProductPage() {
                             width: "32px",
                             height: "32px",
                             cursor: "pointer",
-                            color: theme.colors.mainPrimary,
+                            color: THEME.colors.mainPrimary,
                           }}
                           onClick={() => {
                             handleClickUp(featureItem.id, featureItem.stock);

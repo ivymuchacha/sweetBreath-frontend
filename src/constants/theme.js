@@ -1,4 +1,4 @@
-export const theme = {
+export const THEME = {
   fontSize: {
     h1: "32px",
     h2: "28px",

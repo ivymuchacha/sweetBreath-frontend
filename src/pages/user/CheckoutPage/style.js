@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { theme } from "../../../constants/theme";
 import { H1, H4, H5, BodyLarge, MEDIA_QUERY } from "../../../constants/style";
 
 export const CheckoutContainer = styled.div`
@@ -35,16 +34,16 @@ export const StepNumber = styled(BodyLarge)`
   justify-content: center;
   align-items: center;
   margin-right: 10px;
-  background: ${theme.colors.neutralWhite};
-  color: ${theme.colors.mainPrimary};
-  border: 1px solid ${theme.colors.mainPrimary};
+  background: ${({theme})=>theme.colors.neutralWhite};
+  color: ${({theme})=>theme.colors.mainPrimary};
+  border: 1px solid ${({theme})=>theme.colors.mainPrimary};
 
   ${(props) =>
     props.selected === "2" &&
     `
-    background: ${theme.colors.mainPrimary};
-    color:${theme.colors.neutralWhite};
-    border:1px solid ${theme.colors.neutralWhite};
+    background: ${({theme})=>theme.colors.mainPrimary};
+    color:${({theme})=>theme.colors.neutralWhite};
+    border:1px solid ${({theme})=>theme.colors.neutralWhite};
     `};
 `;
 
@@ -55,7 +54,7 @@ export const StepName = styled(H5)`
 export const StepLine = styled.div`
   width: 60px;
   margin: 10px 20px;
-  border: 1px solid ${theme.colors.mainPrimary};
+  border: 1px solid ${({theme})=>theme.colors.mainPrimary};
 
   ${MEDIA_QUERY} {
     margin: 10px;
@@ -91,7 +90,7 @@ export const InputContainer = styled.div`
     margin: 10px 0;
     padding: 10px;
     width: 95%;
-    font-size: ${theme.fontSize.bodyLarge};
+    font-size: ${({theme})=>theme.fontSize.bodyLarge};
   }
 `;
 
@@ -104,7 +103,7 @@ export const ButtonContainer = styled.div`
   button {
     border-radius: 4px;
     padding: 10px 32px;
-    font-size: ${theme.fontSize.button};
+    font-size: ${({theme})=>theme.fontSize.button};
     transition: ease-in-out 0.1s;
     cursor: pointer;
   }
@@ -115,22 +114,22 @@ export const ButtonContainer = styled.div`
 `;
 
 export const BackButton = styled(Link)`
-  color: ${theme.colors.neutralDarkGrey};
-  background: ${theme.colors.neutralPaleGrey};
+  color: ${({theme})=>theme.colors.neutralDarkGrey};
+  background: ${({theme})=>theme.colors.neutralPaleGrey};
 
   :hover {
-    color: ${theme.colors.neutralBlack};
-    background: ${theme.colors.neutralLightGrey};
+    color: ${({theme})=>theme.colors.neutralBlack};
+    background: ${({theme})=>theme.colors.neutralLightGrey};
   }
 `;
 
 export const SubmitButton = styled.button`
-  color: ${theme.colors.neutralWhite};
-  background: ${theme.colors.mainPrimary};
+  color: ${({theme})=>theme.colors.neutralWhite};
+  background: ${({theme})=>theme.colors.mainPrimary};
 
   :hover {
-    color: ${theme.colors.neutralPaleGrey};
-    background: ${theme.colors.uiNegative};
+    color: ${({theme})=>theme.colors.neutralPaleGrey};
+    background: ${({theme})=>theme.colors.uiNegative};
   }
 `;
 
@@ -138,7 +137,7 @@ export const OrderListContainer = styled.div`
   width: 400px;
   padding: 10px 30px;
   margin-bottom: 20px;
-  border: 1px solid ${theme.colors.neutralLightGrey};
+  border: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
 
   ${MEDIA_QUERY} {
     max-width: 350px;
@@ -146,7 +145,7 @@ export const OrderListContainer = styled.div`
 `;
 
 export const OrderItemsContainer = styled.div`
-  border-bottom: 1px solid ${theme.colors.neutralLightGrey};
+  border-bottom: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
   padding: 10px 0;
 `;
 
