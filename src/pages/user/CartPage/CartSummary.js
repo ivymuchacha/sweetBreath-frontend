@@ -5,7 +5,7 @@ import {
   CartSummaryContainer,
   SubmitButton,
   Subtotal,
-  OrderTotalPrice,
+  OrderTotalPrice
 } from "./style";
 
 export function CartSummary({ totalPrice }) {
@@ -31,5 +31,5 @@ export function CartSummary({ totalPrice }) {
 }
 
 CartSummary.propTypes = {
-  totalPrice: PropTypes.number,
+  totalPrice: PropTypes.number
 };

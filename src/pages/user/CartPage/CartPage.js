@@ -11,7 +11,7 @@ import {
 } from "./style";
 
 export default function CartPage() {
-  const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartData = JSON.parse(localStorage.getItem("cart")) || []
   const [cart, setCart] = useState(cartData || []);
   const [totalPrice, setTotalPrice] = useState(0);
 
