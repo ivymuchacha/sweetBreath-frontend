@@ -2,10 +2,10 @@ import {
   SocialLoginContainer,
   SocialLoginTitle,
   SocialLoginSite,
-  SiteLogo,
+  SiteLogo
 } from "./style";
-import googleLogin from "../../../components/icon/googleLogin.png";
-import facebookLogin from "../../../components/icon/facebookLogin.png";
+import googleLogin from "@components/icon/googleLogin.png";
+import facebookLogin from "@components/icon/facebookLogin.png";
 import React from "react";
 
 export default function SocialLogin() {
@@ -13,8 +13,8 @@ export default function SocialLogin() {
     <SocialLoginContainer>
       <SocialLoginTitle>社群登入</SocialLoginTitle>
       <SocialLoginSite>
-        <SiteLogo src={googleLogin} to="#" />
-        <SiteLogo src={facebookLogin} to="#" />
+        <SiteLogo src={googleLogin} to='#' />
+        <SiteLogo src={facebookLogin} to='#' />
       </SocialLoginSite>
     </SocialLoginContainer>
   );

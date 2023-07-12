@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { H1, BodyLarge, MEDIA_QUERY } from "../../../constants/style";
-import sweetBreath from "../../../components/icon/sweetBreath.png";
+import { H1, BodyLarge, MEDIA_QUERY } from "@constants/style";
+import sweetBreath from "@components/icon/sweetBreath.png";
 import React from "react";
 
 const AboutContent = styled.div`
@@ -61,11 +61,11 @@ export default function AboutPage() {
       <H1>關於我們</H1>
       <AboutDescription>
         <DescriptionImg
-          src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-          alt="unsplash好好用讚讚"
+          src='https://images.unsplash.com/photo-1506459225024-1428097a7e18?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80'
+          alt='unsplash好好用讚讚'
         />
         <Description>
-          <LogoImg src={sweetBreath} alt="logo" />
+          <LogoImg src={sweetBreath} alt='logo' />
           <DescriptionText>
             根據《鬼滅之刃》漫畫第5話的解釋，
             <br />

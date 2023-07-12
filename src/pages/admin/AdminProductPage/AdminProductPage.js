@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { addProduct, getCategory } from "../../../webAPI/productAPI";
+import { addProduct, getCategory } from "@webAPI/productAPI";
 import {
   Content,
   Product,
@@ -9,7 +9,7 @@ import {
   ProductContent,
   Error,
   AdminBtn,
-  SubmitButton,
+  SubmitButton
 } from "./style";
 import Question from "./Question";
 import QuestionText from "./QuestionText";
@@ -27,7 +27,7 @@ export default function AdminProductPage() {
     feature: "",
     price: "",
     promo_price: "",
-    stock: "",
+    stock: ""
   });
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
@@ -47,7 +47,7 @@ export default function AdminProductPage() {
       feature,
       price,
       promo_price,
-      stock,
+      stock
     } = product;
     if (
       !name ||
@@ -98,58 +98,58 @@ export default function AdminProductPage() {
           <AdminTitle>商品資訊</AdminTitle>
           <ProductContent>
             <Question
-              title="商品名稱"
-              name="name"
+              title='商品名稱'
+              name='name'
               value={product.name}
               handleChange={handleChange}
             />
             <Question
-              title="圖片網址"
-              name="image"
+              title='圖片網址'
+              name='image'
               value={product.image}
               handleChange={handleChange}
             />
             <QuestionStatusSelect
-              title="狀態"
-              name="status"
+              title='狀態'
+              name='status'
               value={product.status}
               handleChange={handleChange}
             />
             <QuestionSelect
-              title="分類"
-              name="CategoryId"
+              title='分類'
+              name='CategoryId'
               category={category}
               value={Number(product.CategoryId)}
               handleChange={handleChange}
             />
             <QuestionText
-              title="商品介紹"
-              name="info"
+              title='商品介紹'
+              name='info'
               value={product.info}
               handleChange={handleChange}
             />
             <AdminTitle>商品規格</AdminTitle>
             <Question
-              title="規格名稱"
-              name="feature"
+              title='規格名稱'
+              name='feature'
               value={product.feature}
               handleChange={handleChange}
             />
             <Question
-              title="原價"
-              name="price"
+              title='原價'
+              name='price'
               value={product.price}
               handleChange={handleChange}
             />
             <Question
-              title="特價"
-              name="promo_price"
+              title='特價'
+              name='promo_price'
               value={product.promo_price}
               handleChange={handleChange}
             />
             <Question
-              title="庫存"
-              name="stock"
+              title='庫存'
+              name='stock'
               value={product.stock}
               handleChange={handleChange}
             />

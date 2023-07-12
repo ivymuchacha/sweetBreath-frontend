@@ -1,5 +1,5 @@
 import { PageContainer } from "./style";
-import { H1 } from "../../../constants/style";
+import { H1 } from "@constants/style";
 import NewsGroup from "./NewsGroup";
 import React from "react";
 

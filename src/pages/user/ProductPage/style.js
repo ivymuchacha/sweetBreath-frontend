@@ -6,8 +6,8 @@ import {
   Body,
   Caption1,
   Caption2,
-  Button,
-} from "../../../constants/style";
+  Button
+} from "@constants/style";
 
 export { Caption1, Caption2, Button };
 export const Content = styled.div`

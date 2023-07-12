@@ -1,16 +1,16 @@
 import { Container, PageTitle } from "./style";
-import { Tabs, Tab, Content } from "../../../components/Tab/Tab.js";
+import { Tabs, Tab, Content } from "@components/Tab/Tab.js";
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { getUser, editUser } from "../../../webAPI/userAPI";
-import { getUserOrders } from "../../../webAPI/orderAPI";
+import { getUser, editUser } from "@webAPI/userAPI";
+import { getUserOrders } from "@webAPI/orderAPI";
 import TabUser from "./TabUser";
 import TabOrder from "./TabOrder";
-import { LoadingContext } from "../../../contexts";
-import Loading from "../../../components/Loading";
+import { useLoadingContext } from "@contexts";
+import Loading from "@components/Loading";
 
 export default function MemberPage() {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { isLoading, setIsLoading } = useLoadingContext();
   const [user, setUser] = useState("");
   const [order, setOrder] = useState([]);
   const [active, setActive] = useState(0);
@@ -87,7 +87,7 @@ export default function MemberPage() {
         fullname,
         email,
         birthday: newBirthday,
-        address: newAdress,
+        address: newAdress
       };
     });
 
@@ -164,8 +164,7 @@ export default function MemberPage() {
                 <TabOrder
                   order={order}
                   key={order.id}
-                  orderItems={order.OrderItems}
-                ></TabOrder>
+                  orderItems={order.OrderItems}></TabOrder>
               ))}
             </Content>
           </>

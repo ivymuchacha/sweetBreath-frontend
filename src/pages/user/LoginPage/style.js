@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { H3, Input } from "../../../constants/style";
+import { H3, Input } from "@constants/style";
 
 export const PageContainer = styled.div`
   * {
@@ -24,7 +24,7 @@ export const LoginForm = styled.form`
 export const LoginInput = styled(Input)`
   margin: 10px 0;
   width: 100%;
-  font-size: ${({theme})=>theme.fontSize.h5};
+  font-size: ${({ theme }) => theme.fontSize.h5};
 `;
 
 export const LoginButton = styled.button`
@@ -32,8 +32,8 @@ export const LoginButton = styled.button`
   height: 46px;
   margin: 20px 0;
   border-radius: 4px;
-  background-color: ${({theme})=>theme.colors.mainPrimary};
-  font-size: ${({theme})=>theme.fontSize.h5};
+  background-color: ${({ theme }) => theme.colors.mainPrimary};
+  font-size: ${({ theme }) => theme.fontSize.h5};
   color: #ffffff;
   cursor: pointer;
 `;
@@ -44,18 +44,18 @@ export const LoginRefer = styled.div`
 `;
 
 export const LoginReferLink = styled(Link)`
-  color: ${({theme}) => theme.colors.neutralBlack};
-  border-bottom: 1px solid ${({theme})=>theme.colors.neutralWhite};
+  color: ${({ theme }) => theme.colors.neutralBlack};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutralWhite};
 
   :hover {
-    border-bottom: 1px solid ${({theme})=>theme.colors.neutralBlack};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.neutralBlack};
   }
 `;
 
 export const SocialLoginContainer = styled.div``;
 
 export const SocialLoginTitle = styled(H3)`
-  border-bottom: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutralLightGrey};
   width: 100%;
   text-align: center;
   display: block;
@@ -75,13 +75,13 @@ export const SiteLogo = styled.img`
 `;
 
 export const ErrorMessage = styled.div`
-  color: ${({theme})=>theme.colors.mainPrimary};
+  color: ${({ theme }) => theme.colors.mainPrimary};
   text-align: center;
 `;
 
 export const SubmitLoading = styled.div`
   padding: 20px 0;
   font-weight: 700;
-  color: ${({theme}) => theme.colors.neutralGrey};
+  color: ${({ theme }) => theme.colors.neutralGrey};
   text-align: center;
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { theme } from "../../../constants/theme";
-import { H5, MEDIA_QUERY } from "../../../constants/style";
+import { theme } from "@constants/theme";
+import { H5, MEDIA_QUERY } from "@constants/style";
 
 export const OrdersListWrapper = styled.div`
   max-width: 1200px;
@@ -22,31 +22,31 @@ export const OrdersListWrapper = styled.div`
 export const OrderStatusButtons = styled.div`
   display: flex;
   margin-bottom: 40px;
-  border-bottom: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutralLightGrey};
 `;
 
 export const StatusButton = styled.button`
   cursor: pointer;
   margin-right: 30px;
   padding: 12px;
-  font-size: ${({theme})=>theme.fontSize.h5};
+  font-size: ${({ theme }) => theme.fontSize.h5};
   background: transparent;
   border: none;
   transition: ease-in-out 0.2s;
 
   color: ${(props) =>
     props.selected
-      ? `${({theme})=>theme.colors.neutralBlack}`
-      : `${({theme})=>theme.colors.neutralDarkGrey}`};
+      ? `${({ theme }) => theme.colors.neutralBlack}`
+      : `${({ theme }) => theme.colors.neutralDarkGrey}`};
 
   border-bottom: 4px solid
     ${(props) =>
       props.selected
-        ? `${({theme})=>theme.colors.mainPrimary}`
-        : `${({theme})=>theme.colors.neutralPaleGrey}`};
+        ? `${({ theme }) => theme.colors.mainPrimary}`
+        : `${({ theme }) => theme.colors.neutralPaleGrey}`};
 
   :hover {
-    color: ${({theme})=>theme.colors.neutralBlack};
+    color: ${({ theme }) => theme.colors.neutralBlack};
   }
 
   ${MEDIA_QUERY} {
@@ -55,7 +55,7 @@ export const StatusButton = styled.button`
 `;
 
 export const OrdersContainer = styled.table`
-  border: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
+  border: 1px solid ${({ theme }) => theme.colors.neutralLightGrey};
   align-items: center;
   border-collapse: collapse;
   min-width: 100%;
@@ -67,12 +67,12 @@ export const OrdersContainer = styled.table`
 `;
 
 export const OrderTableHeader = styled.tr`
-  font-size: ${({theme})=>theme.fontSize.h4};
-  background: ${({theme})=>theme.colors.mainPrimary};
+  font-size: ${({ theme }) => theme.fontSize.h4};
+  background: ${({ theme }) => theme.colors.mainPrimary};
 
   th {
     font-weight: bold;
-    color: ${({theme})=>theme.colors.neutralWhite};
+    color: ${({ theme }) => theme.colors.neutralWhite};
     padding: 10px;
     height: 50px;
     ${MEDIA_QUERY} {
@@ -85,11 +85,11 @@ export const OrderContainer = styled.div``;
 
 export const OrderHeader = styled.tr`
   align-items: center;
-  border: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
-  background: ${({theme})=>theme.colors.neutralSnow};
+  border: 1px solid ${({ theme }) => theme.colors.neutralLightGrey};
+  background: ${({ theme }) => theme.colors.neutralSnow};
 
   td {
-    font-size: ${({theme})=>theme.fontSize.h5};
+    font-size: ${({ theme }) => theme.fontSize.h5};
     align-items: center;
     padding: 12px 0;
     flex: 1;
@@ -128,31 +128,34 @@ export const SettingStatus = styled.td`
 `;
 
 export const OrderStatusLabel = styled.button`
-  background: ${({theme})=>theme.colors.neutralGrey};
-  font-size: ${({theme})=>theme.fontSize.bodyLarge};
-  color: ${({theme})=>theme.colors.neutralWhite};
+  background: ${({ theme }) => theme.colors.neutralGrey};
+  font-size: ${({ theme }) => theme.fontSize.bodyLarge};
+  color: ${({ theme }) => theme.colors.neutralWhite};
   border-radius: 4px;
   padding: 6px;
   margin: 4px;
   cursor: pointer;
 
   ${MEDIA_QUERY} {
-    font-size: ${({theme})=>theme.fontSize.bodyLarge};
+    font-size: ${({ theme }) => theme.fontSize.bodyLarge};
   }
 `;
 
 export const IsDoneLabel = styled(OrderStatusLabel)`
   ${(props) =>
-    (props.isCancel && `background: ${({theme})=>theme.colors.uiNegative}`) ||
+    (props.isCancel &&
+      `background: ${({ theme }) => theme.colors.uiNegative}`) ||
     (props.isDone
-      ? `background: ${({theme})=>theme.colors.uiPositive}`
-      : `background: ${({theme})=>theme.colors.uiWarning}`)}
+      ? `background: ${({ theme }) => theme.colors.uiPositive}`
+      : `background: ${({ theme }) => theme.colors.uiWarning}`)}
 `;
 export const IsPaidLabel = styled(OrderStatusLabel)`
-  ${(props) => props.isPaid && `background: ${({theme})=>theme.colors.uiPositive}`}
+  ${(props) =>
+    props.isPaid && `background: ${({ theme }) => theme.colors.uiPositive}`}
 `;
 export const IsSentLabel = styled(OrderStatusLabel)`
-  ${(props) => props.isSent && `background: ${({theme})=>theme.colors.uiPositive}`}
+  ${(props) =>
+    props.isSent && `background: ${({ theme }) => theme.colors.uiPositive}`}
 `;
 
 export const OrderContents = styled.tr`
@@ -172,27 +175,27 @@ export const OrderContent = styled.div`
 export const OrderDetail = styled.div`
   line-height: 1.8;
 
-  font-size: ${({theme})=>theme.fontSize.h4};
+  font-size: ${({ theme }) => theme.fontSize.h4};
   min-width: 35%;
   ${MEDIA_QUERY} {
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.neutralLightGrey};
   }
 `;
 
 export const SettingButtons = styled.td`
   button {
-    background: ${({theme})=>theme.colors.neutralDarkGrey};
-    font-size: ${({theme})=>theme.fontSize.bodyLarge};
-    color: ${({theme})=>theme.colors.neutralWhite};
+    background: ${({ theme }) => theme.colors.neutralDarkGrey};
+    font-size: ${({ theme }) => theme.fontSize.bodyLarge};
+    color: ${({ theme }) => theme.colors.neutralWhite};
     border-radius: 4px;
     padding: 8px;
     margin: 6px 10px;
     cursor: pointer;
 
     :hover {
-      background: ${({theme})=>theme.colors.uiNegative};
+      background: ${({ theme }) => theme.colors.uiNegative};
     }
   }
 `;

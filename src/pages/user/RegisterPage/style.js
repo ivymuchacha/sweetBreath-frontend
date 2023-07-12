@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H3, Input } from "../../../constants/style";
+import { H3, Input } from "@constants/style";
 
 export const PageContainer = styled.div`
   * {
@@ -23,7 +23,7 @@ export const RegisterForm = styled.form`
 export const RegisterInput = styled(Input)`
   margin: 10px 0;
   width: 100%;
-  font-size: ${({theme})=>theme.fontSize.h5};
+  font-size: ${({ theme }) => theme.fontSize.h5};
 `;
 
 export const RegisterButton = styled.button`
@@ -31,15 +31,15 @@ export const RegisterButton = styled.button`
   height: 46px;
   margin: 20px 0;
   border-radius: 4px;
-  background-color: ${({theme})=>theme.colors.mainPrimary};
-  font-size: ${({theme})=>theme.fontSize.h5};
+  background-color: ${({ theme }) => theme.colors.mainPrimary};
+  font-size: ${({ theme }) => theme.fontSize.h5};
   border: 0;
   color: #ffffff;
   cursor: pointer;
 `;
 
 export const ErrorMessage = styled.div`
-  color: ${({theme})=>theme.colors.mainPrimary};
+  color: ${({ theme }) => theme.colors.mainPrimary};
   text-align: center;
   word-wrap: break-word;
   width: 350px;
@@ -50,6 +50,6 @@ export const SubmitLoading = styled.div`
   padding: 20px 0;
   height: 46px;
   font-weight: 700;
-  color: ${({theme}) => theme.colors.neutralGrey};
+  color: ${({ theme }) => theme.colors.neutralGrey};
   text-align: center;
 `;

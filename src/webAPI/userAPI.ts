@@ -1,8 +1,8 @@
-import { getAuthToken } from "../utils";
-import { BASE_URL } from "./config";
+import { getAuthToken } from "@utils/authToken";
+import { BASE_API_URL } from "./constants";
 
 export const register = (fullName, username, email, password) => {
-  return fetch(`${BASE_URL}/register`, {
+  return fetch(`${BASE_API_URL}/register`, {
     method: "POST",
     headers: {
       "content-type": "application/json"
@@ -17,7 +17,7 @@ export const register = (fullName, username, email, password) => {
 };
 
 export const login = (username, password) => {
-  return fetch(`${BASE_URL}/login`, {
+  return fetch(`${BASE_API_URL}/login`, {
     method: "POST",
     headers: {
       "content-type": "application/json"
@@ -31,7 +31,7 @@ export const login = (username, password) => {
 
 export const getMe = () => {
   const token = getAuthToken();
-  return fetch(`${BASE_URL}/me`, {
+  return fetch(`${BASE_API_URL}/me`, {
     headers: {
       authorization: `Bearer ${token}`
     }
@@ -45,7 +45,7 @@ export const getMe = () => {
 
 export const getUser = () => {
   const token = getAuthToken();
-  return fetch(`${BASE_URL}/user`, {
+  return fetch(`${BASE_API_URL}/user`, {
     method: "GET",
     headers: {
       authorization: `Bearer ${token}`
@@ -60,7 +60,7 @@ export const getUser = () => {
 
 export const getAllUser = () => {
   const token = getAuthToken();
-  return fetch(`${BASE_URL}/users`, {
+  return fetch(`${BASE_API_URL}/users`, {
     method: "GET",
     headers: {
       authorization: `Bearer ${token}`
@@ -70,7 +70,7 @@ export const getAllUser = () => {
 
 export const editUser = (fullname, email, birthday, address) => {
   const token = getAuthToken();
-  return fetch(`${BASE_URL}/user`, {
+  return fetch(`${BASE_API_URL}/user`, {
     method: "PUT",
     headers: {
       authorization: `Bearer ${token}`,
@@ -91,7 +91,7 @@ export const editUser = (fullname, email, birthday, address) => {
 
 export const editUserStatus = (id, is_admin, status) => {
   const token = getAuthToken();
-  fetch(`${BASE_URL}/users/${id}`, {
+  fetch(`${BASE_API_URL}/users/${id}`, {
     method: "PUT",
     headers: {
       authorization: `Bearer ${token}`,

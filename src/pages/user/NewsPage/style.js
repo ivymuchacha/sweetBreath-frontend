@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MEDIA_QUERY } from "../../../constants/style";
+import { MEDIA_QUERY } from "@constants/style";
 
 export const PageContainer = styled.div`
   * {

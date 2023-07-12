@@ -3,16 +3,16 @@ import {
   RegisterInput,
   RegisterButton,
   ErrorMessage,
-  SubmitLoading,
+  SubmitLoading
 } from "./style";
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { register } from "../../../webAPI/userAPI";
-import { setAuthToken } from "../../../utils";
-import { LoadingContext } from "../../../contexts";
+import { register } from "@webAPI/userAPI";
+import { setAuthToken } from "@utils/authToken";
+import { useLoadingContext } from "@contexts";
 
 export default function Register() {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { isLoading, setIsLoading } = useLoadingContext();
   const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -64,13 +64,13 @@ export default function Register() {
           value={fullname}
           onChange={(e) => setFullname(e.target.value)}
           onFocus={handleInputFocus}
-          placeholder="全名"
+          placeholder='全名'
         />
         <RegisterInput
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           onFocus={handleInputFocus}
-          placeholder="帳號"
+          placeholder='帳號'
         />
         <RegisterInput
           value={email}
@@ -79,15 +79,15 @@ export default function Register() {
             setEmail(e.target.value);
           }}
           onFocus={handleInputFocus}
-          type="email"
-          placeholder="電子郵件"
+          type='email'
+          placeholder='電子郵件'
         />
         <RegisterInput
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           onFocus={handleInputFocus}
-          type="password"
-          placeholder="密碼"
+          type='password'
+          placeholder='密碼'
         />
         {isLoading ? (
           <SubmitLoading>資料驗證中...</SubmitLoading>

@@ -1,4 +1,3 @@
-import React from "react";
 import Banner from "./Banner";
 import ProductRecommend from "./ProductRecommend";
 import { HomePageContent, SubTitle } from "./style";

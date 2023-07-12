@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MEDIA_QUERY, H4, H5 } from "../../../constants/style";
+import { MEDIA_QUERY, H4, H5 } from "@constants/style";
 
 export const Content = styled.div`
   max-width: 1280px;

@@ -1,8 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { login, getMe } from "../../../webAPI/userAPI";
-import { setAuthToken } from "../../../utils";
-import { AuthContext, LoadingContext } from "../../../contexts";
+import { login, getMe } from "@webAPI/userAPI";
+import { setAuthToken } from "@utils/authToken";
 import {
   LoginForm,
   LoginInput,
@@ -10,12 +9,13 @@ import {
   LoginRefer,
   LoginReferLink,
   ErrorMessage,
-  SubmitLoading,
+  SubmitLoading
 } from "./style";
+import { useAuthContext, useLoadingContext } from "../../../context";
 
 export default function NormalLogin() {
-  const { setUser } = useContext(AuthContext);
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { setUser } = useAuthContext();
+  const { isLoading, setIsLoading } = useLoadingContext();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState();
@@ -60,14 +60,14 @@ export default function NormalLogin() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           onFocus={handleInputFocus}
-          placeholder="帳號"
+          placeholder='帳號'
         />
         <LoginInput
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           onFocus={handleInputFocus}
-          type="password"
-          placeholder="密碼"
+          type='password'
+          placeholder='密碼'
         />
         {isLoading ? (
           <SubmitLoading>資料驗證中...</SubmitLoading>
@@ -77,8 +77,8 @@ export default function NormalLogin() {
           </>
         )}
         <LoginRefer>
-          <LoginReferLink to="#">忘記帳號密碼？</LoginReferLink>
-          <LoginReferLink to="/register">還不是會員？加入會員</LoginReferLink>
+          <LoginReferLink to='#'>忘記帳號密碼？</LoginReferLink>
+          <LoginReferLink to='/register'>還不是會員？加入會員</LoginReferLink>
         </LoginRefer>
       </LoginForm>
     </>

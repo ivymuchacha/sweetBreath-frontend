@@ -1,12 +1,12 @@
 import { useHistory, useParams } from "react-router-dom";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import {
   getProduct,
   editProduct,
   addFeature,
   editFeature,
-  deleteFeature,
-} from "../../../webAPI/productAPI";
+  deleteFeature
+} from "@webAPI/productAPI";
 import {
   Content,
   Product,
@@ -20,17 +20,17 @@ import {
   AdminFeature,
   FeatureItem,
   DeleteButton,
-  AddButton,
+  AddButton
 } from "./style";
 import Question from "./Question";
 import QuestionText from "./QuestionText";
 import QuestionSelect from "./QuestionSelect";
 import QuestionStatusSelect from "./QuestionStatusSelect";
-import { LoadingContext } from "../../../contexts";
-import Loading from "../../../components/Loading";
+import { useLoadingContext } from "@contexts";
+import Loading from "@components/Loading";
 
 export default function AdminProductPage() {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { isLoading, setIsLoading } = useLoadingContext();
   const { id } = useParams();
   const history = useHistory();
   const [add, setAdd] = useState(false);
@@ -42,7 +42,7 @@ export default function AdminProductPage() {
     status: "",
     CategoryId: "",
     info: "",
-    errorMessage: "",
+    errorMessage: ""
   });
   const [features, setFeatures] = useState([]);
   const [feature, setFeature] = useState({
@@ -50,7 +50,7 @@ export default function AdminProductPage() {
     stock: "",
     promo_price: "",
     price: "",
-    errorMessage: "",
+    errorMessage: ""
   });
 
   useEffect(() => {
@@ -101,15 +101,8 @@ export default function AdminProductPage() {
           return;
         }
         return getProduct(id).then((response) => {
-          const {
-            id,
-            name,
-            image,
-            status,
-            CategoryId,
-            info,
-            Features,
-          } = response.data;
+          const { id, name, image, status, CategoryId, info, Features } =
+            response.data;
           let addErrorFeatures = Features;
           addErrorFeatures.map((item) => (item.errorMessage = ""));
           setProduct({ id, name, image, status, CategoryId, info });
@@ -120,7 +113,7 @@ export default function AdminProductPage() {
             stock: "",
             promo_price: "",
             price: "",
-            errorMessage: "",
+            errorMessage: ""
           });
         });
       })
@@ -140,7 +133,7 @@ export default function AdminProductPage() {
         if (feature.id === id) {
           return {
             ...feature,
-            errorMessage: "請輸入完整規格資訊",
+            errorMessage: "請輸入完整規格資訊"
           };
         } else {
           return feature;
@@ -156,7 +149,7 @@ export default function AdminProductPage() {
             if (feature.id === id) {
               return {
                 ...feature,
-                errorMessage: res.message,
+                errorMessage: res.message
               };
             } else {
               return feature;
@@ -172,7 +165,7 @@ export default function AdminProductPage() {
           if (feature.id === id) {
             return {
               ...feature,
-              errorMessage: err.toString(),
+              errorMessage: err.toString()
             };
           } else {
             return feature;
@@ -192,7 +185,7 @@ export default function AdminProductPage() {
               if (feature.id === id) {
                 return {
                   ...feature,
-                  errorMessage: res.message,
+                  errorMessage: res.message
                 };
               } else {
                 return feature;
@@ -201,15 +194,8 @@ export default function AdminProductPage() {
             return setFeatures(newFeatures);
           }
           return getProduct(productId).then((response) => {
-            const {
-              id,
-              name,
-              image,
-              status,
-              CategoryId,
-              info,
-              Features,
-            } = response.data;
+            const { id, name, image, status, CategoryId, info, Features } =
+              response.data;
             let addErrorFeatures = Features;
             addErrorFeatures.map((item) => (item.errorMessage = ""));
             setProduct({ id, name, image, status, CategoryId, info });
@@ -222,7 +208,7 @@ export default function AdminProductPage() {
             if (feature.id === id) {
               return {
                 ...feature,
-                errorMessage: err.toString(),
+                errorMessage: err.toString()
               };
             } else {
               return feature;
@@ -236,7 +222,7 @@ export default function AdminProductPage() {
         if (feature.id === featureId) {
           return {
             ...feature,
-            errorMessage: "每個商品至少需有一項規格",
+            errorMessage: "每個商品至少需有一項規格"
           };
         } else {
           return feature;
@@ -259,7 +245,7 @@ export default function AdminProductPage() {
       if (feature.id === id) {
         return {
           ...feature,
-          [e.target.name]: e.target.value,
+          [e.target.name]: e.target.value
         };
       } else {
         return feature;
@@ -276,38 +262,38 @@ export default function AdminProductPage() {
         <>
           <Product>
             <ProductImage>
-              <img src={product.image} alt="product"></img>
+              <img src={product.image} alt='product'></img>
             </ProductImage>
             <ProductDesc>
               <AdminTitle>商品資訊</AdminTitle>
               <ProductContent>
                 <Question
-                  title="商品名稱"
-                  name="name"
+                  title='商品名稱'
+                  name='name'
                   value={product.name}
                   handleChange={handleChange}
                 />
                 <Question
-                  title="圖片網址"
-                  name="image"
+                  title='圖片網址'
+                  name='image'
                   value={product.image}
                   handleChange={handleChange}
                 />
                 <QuestionStatusSelect
-                  title="狀態"
-                  name="status"
+                  title='狀態'
+                  name='status'
                   value={product.status}
                   handleChange={handleChange}
                 />
                 <QuestionSelect
-                  title="分類"
-                  name="CategoryId"
+                  title='分類'
+                  name='CategoryId'
                   value={product.CategoryId}
                   handleChange={handleChange}
                 />
                 <QuestionText
-                  title="商品介紹"
-                  name="info"
+                  title='商品介紹'
+                  name='info'
                   value={product.info}
                   handleChange={handleChange}
                 />
@@ -321,27 +307,27 @@ export default function AdminProductPage() {
                     features.map((feature) => (
                       <FeatureItem key={feature.id}>
                         <Question
-                          title="規格名稱"
-                          name="name"
+                          title='規格名稱'
+                          name='name'
                           value={feature.name}
                           handleChange={handleFeatureChange(feature.id)}
                         />
                         <Question
-                          title="原價"
-                          name="price"
+                          title='原價'
+                          name='price'
                           value={feature.price}
                           handleChange={handleFeatureChange(feature.id)}
                         />
 
                         <Question
-                          title="特價"
-                          name="promo_price"
+                          title='特價'
+                          name='promo_price'
                           value={feature.promo_price}
                           handleChange={handleFeatureChange(feature.id)}
                         />
                         <Question
-                          title="庫存"
-                          name="stock"
+                          title='庫存'
+                          name='stock'
                           value={feature.stock}
                           handleChange={handleFeatureChange(feature.id)}
                         />
@@ -353,15 +339,13 @@ export default function AdminProductPage() {
                                 feature.id,
                                 feature.ProductId
                               );
-                            }}
-                          >
+                            }}>
                             刪除
                           </DeleteButton>
                           <SubmitButton
                             onClick={() => {
                               handleFeatureEdit(feature.id);
-                            }}
-                          >
+                            }}>
                             編輯
                           </SubmitButton>
                         </AdminBtn>
@@ -373,8 +357,7 @@ export default function AdminProductPage() {
                         <AddButton
                           onClick={() => {
                             setAdd(true);
-                          }}
-                        >
+                          }}>
                           新增規格
                         </AddButton>
                       </AdminBtn>
@@ -383,27 +366,27 @@ export default function AdminProductPage() {
                   {add && (
                     <FeatureItem>
                       <Question
-                        title="規格名稱"
-                        name="name"
+                        title='規格名稱'
+                        name='name'
                         value={feature.name}
                         handleChange={handleNewFeatureChange}
                       />
                       <Question
-                        title="原價"
-                        name="price"
+                        title='原價'
+                        name='price'
                         value={feature.price}
                         handleChange={handleNewFeatureChange}
                       />
 
                       <Question
-                        title="特價"
-                        name="promo_price"
+                        title='特價'
+                        name='promo_price'
                         value={feature.promo_price}
                         handleChange={handleNewFeatureChange}
                       />
                       <Question
-                        title="庫存"
-                        name="stock"
+                        title='庫存'
+                        name='stock'
                         value={feature.stock}
                         handleChange={handleNewFeatureChange}
                       />
@@ -412,8 +395,7 @@ export default function AdminProductPage() {
                         <SubmitButton
                           onClick={() => {
                             handleFeatureAdd(product.id);
-                          }}
-                        >
+                          }}>
                           提交
                         </SubmitButton>
                       </AdminBtn>

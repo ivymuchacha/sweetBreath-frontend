@@ -1,14 +1,14 @@
-import { H1 } from "../../../constants/style";
-import React, { useState, useEffect, useContext } from "react";
+import { H1 } from "@constants/style";
+import React, { useState, useEffect } from "react";
 import { Content, MemberSection, MemberList } from "./style";
 import SearchBar from "./SearchBar";
 import Members from "./Members";
-import { getAllUser, editUserStatus } from "../../../webAPI/userAPI";
-import { LoadingContext } from "../../../contexts";
-import Loading from "../../../components/Loading";
+import { getAllUser, editUserStatus } from "@webAPI/userAPI";
+import { useLoadingContext } from "@contexts";
+import Loading from "@components/Loading";
 
 export default function AdminMemberPage() {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { isLoading, setIsLoading } = useLoadingContext();
   const [searchType, setSearchType] = useState("id");
   const [searchText, setSearchText] = useState("");
   const [rawData, setRawData] = useState([]);

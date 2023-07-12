@@ -3,13 +3,10 @@ import {
   ProductTitle,
   ProductName,
   ProductSetting,
-  SettingButton,
+  SettingButton
 } from "./style";
 import ProductItems from "./ProductItems";
-import {
-  deleteProduct,
-  getCategoryAndProducts,
-} from "../../../webAPI/productAPI";
+import { deleteProduct, getCategoryAndProducts } from "@webAPI/productAPI";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -40,8 +37,7 @@ export default function Products({ products, setErrorMessage, setCategories }) {
           </SettingButton>
           <SettingButton
             to={"/admin/products"}
-            onClick={() => handleDeleteClick(product.id)}
-          >
+            onClick={() => handleDeleteClick(product.id)}>
             刪除
           </SettingButton>
         </ProductSetting>
@@ -54,5 +50,5 @@ export default function Products({ products, setErrorMessage, setCategories }) {
 Products.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
   setErrorMessage: PropTypes.func,
-  setCategories: PropTypes.func,
+  setCategories: PropTypes.func
 };

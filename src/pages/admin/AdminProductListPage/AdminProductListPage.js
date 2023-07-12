@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { scrollToAnchor } from "../../../components/Anchor";
-import { getCategoryAndProducts } from "../../../webAPI/productAPI";
+import { scrollToAnchor } from "@components/Anchor";
+import { getCategoryAndProducts } from "@webAPI/productAPI";
 import Products from "./Products";
 import {
   Content,
@@ -12,13 +12,13 @@ import {
   ErrorMessage,
   CategorySection,
   CategoryTitle,
-  ProductList,
+  ProductList
 } from "./style";
-import { LoadingContext } from "../../../contexts";
-import Loading from "../../../components/Loading";
+import { useLoadingContext } from "@contexts";
+import Loading from "@components/Loading";
 
 export default function AdminProductListPage() {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { isLoading, setIsLoading } = useLoadingContext;
   const [categories, setCategories] = useState([]);
   const [errorMessage, setErrorMessage] = useState();
 
@@ -46,13 +46,12 @@ export default function AdminProductListPage() {
               {categories.map((category) => (
                 <CategoryName
                   key={category.id}
-                  onClick={() => scrollToAnchor(category.id)}
-                >
+                  onClick={() => scrollToAnchor(category.id)}>
                   {category.name} ({category.Products.length})
                 </CategoryName>
               ))}
             </CategoryList>
-            <AddBtn to="/admin/product">新增商品</AddBtn>
+            <AddBtn to='/admin/product'>新增商品</AddBtn>
           </CategoryHeader>
           <ErrorMessage>
             {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}

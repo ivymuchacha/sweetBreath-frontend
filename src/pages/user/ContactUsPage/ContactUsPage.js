@@ -5,10 +5,10 @@ import {
   ContactUsAbout,
   ContactUsPageTitle,
   ContactUsAboutItem,
-  MessageBoardEmpty,
+  MessageBoardEmpty
 } from "./style";
 import React, { useState, useEffect } from "react";
-import { Map } from "../../../components/Map/Map";
+import { Map } from "@components/Map/Map";
 import { MessageForm } from "./MessageForm";
 import { MessageBoard } from "./MessageBoard";
 
@@ -55,10 +55,9 @@ export default function ContactUsPage() {
           <ContactUsAboutItem>
             版權聲明｜
             <a
-              href="https://choosealicense.com/licenses/mit/"
-              target="_blank"
-              rel="noreferrer"
-            >
+              href='https://choosealicense.com/licenses/mit/'
+              target='_blank'
+              rel='noreferrer'>
               MIT License
             </a>
           </ContactUsAboutItem>

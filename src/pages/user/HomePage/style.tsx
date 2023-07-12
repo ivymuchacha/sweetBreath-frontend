@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BodyLarge, MEDIA_QUERY, H2 } from "../../../constants/style";
+import { BodyLarge, MEDIA_QUERY, H2 } from "@constants/style";
 import { Link } from "react-router-dom";
 
 export const HomePageContent = styled.div`

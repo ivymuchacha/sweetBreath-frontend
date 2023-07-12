@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import { LoadingContext } from "../../../contexts";
-import Loading from "../../../components/Loading";
+import { useLoadingContext } from "@contexts";
+import Loading from "@components/Loading";
 import { CheckoutList } from "./CheckoutList";
 import { ProgressBar } from "./ProgressBar";
 import { OrderList } from "./OrderList";
@@ -10,13 +10,13 @@ import {
   CheckoutContainer,
   CheckoutHeader,
   CheckoutTitle,
-  CheckoutContent,
+  CheckoutContent
 } from "./style";
-import { getUser } from "../../../webAPI/userAPI";
-import { creatOrder } from "../../../webAPI/orderAPI";
+import { getUser } from "@webAPI/userAPI";
+import { createOrder } from "@webAPI/orderAPI";
 
 export default function CheckoutPage() {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { isLoading, setIsLoading } = useLoadingContext();
   const history = useHistory();
   const [userId, serUserId] = useState("");
   const [fullName, setFullName] = useState("");
@@ -103,7 +103,7 @@ export default function CheckoutPage() {
         product_image: orderItem[i].image,
         product_feature: orderItem[i].feature,
         product_price: orderItem[i].price,
-        product_quantity: orderItem[i].count,
+        product_quantity: orderItem[i].count
       });
     }
     const finalOrder = {
@@ -114,9 +114,9 @@ export default function CheckoutPage() {
       postal_code: postalCode,
       buyer_address: address,
       total: totalPrice,
-      order_items,
+      order_items
     };
-    creatOrder(finalOrder);
+    createOrder(finalOrder);
     alert(`下單成功，感謝您的購買`);
     history.push("/member/orderlist");
     localStorage.removeItem("cart");

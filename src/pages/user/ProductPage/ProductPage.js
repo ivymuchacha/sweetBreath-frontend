@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
-import { getProduct, getCategory } from "../../../webAPI/productAPI";
-import { LoadingContext } from "../../../contexts";
-import { THEME } from "../../../constants/theme";
-import Loading from "../../../components/Loading";
+import { getProduct, getCategory } from "@webAPI/productAPI";
+import { useLoadingContext } from "@contexts";
+import { THEME } from "@constants/theme";
+import Loading from "@components/Loading";
 import {
   Content,
   CategoryBar,
@@ -29,11 +29,11 @@ import {
   CounterArea,
   Error,
   AddToCart,
-  Button,
+  Button
 } from "./style";
 
 export default function ProductPage() {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { isLoading, setIsLoading } = useLoadingContext();
   const history = useHistory();
   const { id } = useParams();
   const [categories, setCategories] = useState([]);
@@ -125,7 +125,7 @@ export default function ProductPage() {
               ? newItem.number * newItem.promo_price
               : newItem.number * newItem.price,
             image: product.image,
-            stock: newItem.stock,
+            stock: newItem.stock
           })
         );
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -154,7 +154,7 @@ export default function ProductPage() {
           {product && (
             <Product>
               <ProductImage>
-                <img src={product.image} alt="product"></img>
+                <img src={product.image} alt='product'></img>
               </ProductImage>
               <ProductDesc>
                 <ProductHead>
@@ -191,7 +191,7 @@ export default function ProductPage() {
                             width: "32px",
                             height: "32px",
                             cursor: "pointer",
-                            color: THEME.colors.mainPrimary,
+                            color: THEME.colors.mainPrimary
                           }}
                           onClick={() => {
                             handleClickDown(featureItem.id);
@@ -203,7 +203,7 @@ export default function ProductPage() {
                             width: "32px",
                             height: "32px",
                             cursor: "pointer",
-                            color: THEME.colors.mainPrimary,
+                            color: THEME.colors.mainPrimary
                           }}
                           onClick={() => {
                             handleClickUp(featureItem.id, featureItem.stock);

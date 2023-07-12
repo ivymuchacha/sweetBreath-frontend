@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { scrollToAnchor } from "../../../components/Anchor";
-import { LoadingContext } from "../../../contexts";
-import Loading from "../../../components/Loading";
+import { scrollToAnchor } from "@components/Anchor";
+import { useLoadingContext } from "@contexts";
+import Loading from "@components/Loading";
 import {
   Content,
   H1,
@@ -10,13 +10,13 @@ import {
   CategorySection,
   CategoryTitle,
   ProductList,
-  BlankCard,
+  BlankCard
 } from "./style";
 import Products from "./Products";
-import { getCategoryAndLaunchedProducts } from "../../../webAPI/productAPI";
+import { getCategoryAndLaunchedProducts } from "@webAPI/productAPI";
 
 export default function ProductListPage() {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { isLoading, setIsLoading } = useLoadingContext();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -38,8 +38,7 @@ export default function ProductListPage() {
             {categories.map((category) => (
               <CategoryName
                 key={category.id}
-                onClick={() => scrollToAnchor(category.id)}
-              >
+                onClick={() => scrollToAnchor(category.id)}>
                 {category.name}
               </CategoryName>
             ))}

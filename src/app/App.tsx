@@ -1,49 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-  useLocation
-} from "react-router-dom";
-// import { Up, scrollToAnchor } from "../Anchor";
-import Navbar from "../Navbar";
-// import AdminNavbar from "../AdminNavbar";
-// import Footer from "../Footer";
-// import {
-//   HomePage,
-//   AboutPage,
-//   LoginPage,
-//   RegisterPage,
-//   ProductListPage,
-//   ProductPage,
-//   NewsPage,
-//   ContactUsPage,
-//   CartPage,
-//   CheckoutPage,
-//   MemberPage,
-//   AdminPage,
-//   AdminProductListPage,
-//   AdminProductPage,
-//   AdminEditProductPage,
-//   AdminMemberPage,
-//   AdminOrderListPage,
-//   AdminCategoryPage
-// } from "../../pages";
-import { AuthContext, LoadingContext } from "../../context/contexts";
-import { User, useAuthContext } from "../../context";
-import { getAuthToken } from "../../utils";
+import React, { useState, useEffect } from "react";
+import { HashRouter as Router } from "react-router-dom";
+import Footer from "@components/Footer";
 
-// @ts-expect-error
-import { getMe } from "../../webAPI/userAPI";
-// import { getAuthToken, ScrollToTop } from "../../utils";
+import { AuthContext, LoadingContext } from "../context/contexts";
+import { User, useAuthContext } from "../context";
+import { getAuthToken } from "@utils/authToken";
+import { useViewInit } from "./hooks";
 
-const useViewInit = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-};
+import { getMe } from "@webAPI/userAPI";
+import { AppRouter, NavBarsInUse } from "./components";
+// import { getAuthToken, ScrollToTop } from "@utils";
 
 // function App() {
 //   const [isLoadingGetMe, setLoadingGetMe] = useState(true);
@@ -167,20 +133,14 @@ const AppProvider = ({ children }: { children: React.ReactElement }) => {
   );
 };
 
-const NavBarsInUse = ({ user }: { user: User | null }) => {
-  if (!user || !user.is_admin) {
-    return <Navbar />;
-  }
-  // return <AdminNavbar />;
-  return "AdminNavbar";
-};
-
 const AppContent = () => {
   const { user } = useAuthContext();
   useViewInit();
   return (
     <>
       <NavBarsInUse user={user} />
+      <AppRouter />
+      <Footer />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import Category from "./Category";
 import {
   AddButton,
@@ -7,19 +7,19 @@ import {
   CategoryContainer,
   Content,
   ErrorMessage,
-  H1,
+  H1
 } from "./style";
 import {
   getCategoryAndProducts,
   addCategory,
   editCategory,
-  deleteCategory,
-} from "../../../webAPI/productAPI";
-import { LoadingContext } from "../../../contexts";
-import Loading from "../../../components/Loading";
+  deleteCategory
+} from "@webAPI/productAPI";
+import Loading from "@components/Loading";
+import { useLoadingContext } from "../../../context";
 
 export default function AdminCategory() {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const { isLoading, setIsLoading } = useLoadingContext();
   const [categories, setCategories] = useState([]);
   const [addInputValue, setAddInputValue] = useState("");
   const [editInputValue, setEditInputValue] = useState({});
@@ -110,12 +110,11 @@ export default function AdminCategory() {
         <>
           <AddCategoryContainer>
             <AddInput
-              type="text"
-              placeholder="輸入分類名稱"
+              type='text'
+              placeholder='輸入分類名稱'
               onChange={handleAddInputChange}
               onFocus={handleAddInputFocus}
-              value={addInputValue}
-            ></AddInput>
+              value={addInputValue}></AddInput>
             <AddButton onClick={handleAddClick}>新增分類</AddButton>
           </AddCategoryContainer>
           {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}

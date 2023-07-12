@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { MEDIA_QUERY, H1, H3, H4, H5 } from "../../../constants/style";
+import { MEDIA_QUERY, H1, H3, H4, H5 } from "@constants/style";
 
 export { H1 };
 export const Content = styled.div`

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import GoogleMapReact from "google-map-react";
 // import { Key } from "../../key.js"; // .gitignore
 // import styled from "styled-components";
-// import { theme } from "../../constants/theme";
+// import { theme } from "@constants/theme";
 
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 // const AnyReactComponent = ({ text }) => (
@@ -23,9 +23,9 @@ class SimpleMap extends Component {
   static defaultProps = {
     center: {
       lat: 25.04, // 59.95
-      lng: 121.5, // 30.33
+      lng: 121.5 // 30.33
     },
-    zoom: 12, // 11
+    zoom: 12 // 11
   };
 
   render() {

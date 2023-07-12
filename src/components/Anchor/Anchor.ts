@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MEDIA_QUERY } from "../../constants/style";
+import { MEDIA_QUERY } from "@constants/style";
 
 export const Up = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ export const Up = styled.div`
   }
 `;
 
-export const scrollToAnchor = (anchorName) => {
+export const scrollToAnchor = (anchorName: string) => {
   if (anchorName) {
     let anchorElement = document.getElementById(anchorName);
     if (anchorElement) {

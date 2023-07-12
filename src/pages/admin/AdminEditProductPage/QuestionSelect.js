@@ -1,7 +1,7 @@
 import { ProductInfo, AdminName, Selector } from "./style";
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { getCategory } from "../../../webAPI/productAPI";
+import { getCategory } from "@webAPI/productAPI";
 
 export default function QuestionSelect({ name, title, value, handleChange }) {
   const [category, setCategory] = useState([]);
@@ -18,8 +18,7 @@ export default function QuestionSelect({ name, title, value, handleChange }) {
         placeholder={title}
         name={name}
         value={value}
-        onChange={handleChange}
-      >
+        onChange={handleChange}>
         {category.length !== 0 &&
           category.map((item) => (
             <option key={item.id} value={item.id}>
@@ -35,5 +34,5 @@ QuestionSelect.propTypes = {
   name: PropTypes.string,
   title: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  handleChange: PropTypes.func,
+  handleChange: PropTypes.func
 };

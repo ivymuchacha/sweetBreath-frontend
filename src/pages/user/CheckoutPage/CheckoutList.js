@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Input, H4 } from "../../../constants/style";
+import { Input, H4 } from "@constants/style";
 import {
   BackButton,
   ButtonContainer,
   CheckoutForm,
   InputContainer,
-  SubmitButton,
+  SubmitButton
 } from "./style";
 
 export function CheckoutList({
@@ -21,22 +21,21 @@ export function CheckoutList({
   address,
   phone,
   orderItem,
-  email,
+  email
 }) {
   return (
     <CheckoutForm
       onSubmit={(e) => {
         handleSubmit(e, orderItem);
-      }}
-    >
+      }}>
       <>
         <InputContainer>
           <H4>收件人姓名</H4>
           <Input
-            type="text"
+            type='text'
             value={fullName}
             onChange={handleFullName}
-            maxLength="50"
+            maxLength='50'
           />
         </InputContainer>
         <InputContainer>
@@ -44,44 +43,44 @@ export function CheckoutList({
             郵遞區號 <span> </span>
           </H4>
           <Input
-            type="text"
+            type='text'
             value={postalCode}
             onChange={handlePostalCode}
-            pattern="[0-9]*"
-            title="範例：234567"
-            maxLength="6"
+            pattern='[0-9]*'
+            title='範例：234567'
+            maxLength='6'
           />
         </InputContainer>
         <InputContainer>
           <H4>收件地址</H4>
           <Input
-            type="text"
+            type='text'
             value={address}
             onChange={handleAddress}
-            maxLength="80"
+            maxLength='80'
           />
         </InputContainer>
         <InputContainer>
           <H4>電話號碼</H4>
           <Input
-            type="tel"
+            type='tel'
             value={phone}
             onChange={handlePhone}
-            maxLength="15"
+            maxLength='15'
           />
         </InputContainer>
         <InputContainer>
           <H4>電子信箱</H4>
           <Input
-            type="email"
+            type='email'
             value={email}
             onChange={handleEmail}
-            maxLength="80"
+            maxLength='80'
           />
         </InputContainer>
       </>
       <ButtonContainer>
-        <BackButton to="/cart">回到購物車</BackButton>
+        <BackButton to='/cart'>回到購物車</BackButton>
         <SubmitButton>確認送出</SubmitButton>
       </ButtonContainer>
     </CheckoutForm>
@@ -100,5 +99,5 @@ CheckoutList.propTypes = {
   email: PropTypes.string,
   phone: PropTypes.string,
   postalCode: PropTypes.string,
-  orderItem: PropTypes.array,
+  orderItem: PropTypes.array
 };

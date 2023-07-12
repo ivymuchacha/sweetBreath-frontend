@@ -1,11 +1,5 @@
 import styled from "styled-components";
-import {
-  H3,
-  H5,
-  InputLine,
-  Textarea,
-  MEDIA_QUERY,
-} from "../../../constants/style";
+import { H3, H5, InputLine, Textarea, MEDIA_QUERY } from "@constants/style";
 
 export const PageContainer = styled.div`
   * {
@@ -57,7 +51,7 @@ export const MessageFormContainer = styled.form`
 
   ${MEDIA_QUERY} {
     margin-top: 60px;
-    border-top: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
+    border-top: 1px solid ${({ theme }) => theme.colors.neutralLightGrey};
     padding-top: 40px;
   }
 `;
@@ -77,7 +71,7 @@ export const MessageFormButton = styled.button`
   height: 46px;
   margin: 20px 0;
   border-radius: 4px;
-  background-color: ${({theme})=>theme.colors.mainPrimary};
+  background-color: ${({ theme }) => theme.colors.mainPrimary};
   border: 0;
   color: #ffffff;
   cursor: pointer;
@@ -95,12 +89,12 @@ export const MessageBoardContainer = styled.div`
 `;
 
 export const MessageBoardItem = styled.div`
-  border: 2px solid ${({theme})=>theme.colors.neutralLightGrey};
+  border: 2px solid ${({ theme }) => theme.colors.neutralLightGrey};
   padding: 10px;
   margin-bottom: 20px;
 
   &:nth-child(1) {
-    border: 2px solid ${({theme})=>theme.colors.neutralGrey};
+    border: 2px solid ${({ theme }) => theme.colors.neutralGrey};
   }
 
   :hover {
@@ -110,7 +104,7 @@ export const MessageBoardItem = styled.div`
 `;
 
 export const MessageBoardItemContent = styled.div`
-  border-bottom: 1px solid ${({theme})=>theme.colors.neutralLightGrey};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutralLightGrey};
   height: 70%;
   padding-bottom: 20px;
   line-height: 26px;

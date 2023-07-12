@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BodyLarge, MEDIA_QUERY } from "../../constants/style";
+import { BodyLarge, MEDIA_QUERY } from "@constants/style";
 import { Link } from "react-router-dom";
 import sweetBreath from "../icon/sweetBreath_line.png";
 import React from "react";
@@ -11,7 +11,7 @@ const LogoContent = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 0px;
-  } ;
+  }
 `;
 
 export const NavbarContent = styled.div`
@@ -94,7 +94,7 @@ export const Divider = styled.span`
   color: ${(props) => props.theme.colors.neutralLightGrey};
   @media screen and (max-width: 1400px) {
     display: none;
-  } ;
+  }
 `;
 
 export const LogoutButton = styled.button`
@@ -118,13 +118,18 @@ export function Logo() {
   return (
     <LogoContent>
       <Link to={"/"}>
-        <LogoImg src={sweetBreath} alt="logo" />
+        <LogoImg src={sweetBreath} alt='logo' />
       </Link>
     </LogoContent>
   );
 }
 
-export const NavButton = (props) => {
+interface NavButtonProps {
+  route: string;
+  title: string;
+}
+
+export const NavButton = (props: NavButtonProps) => {
   return (
     <ButtonContent to={props.route}>
       <ButtonText>{props.title}</ButtonText>

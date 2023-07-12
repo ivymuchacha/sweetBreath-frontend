@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { H4, BodyLarge, Body } from "../../constants/style";
+import { H4, BodyLarge, Body } from "@constants/style";
 import gitHubIcon from "../icon/gitHub.png";
 
 const FooterContent = styled.div`
   margin-top: 200px;
   padding-top: 20px;
-  background-color: ${({theme})=>theme.colors.neutralPaleGrey};
-  color: ${({theme})=>theme.colors.neutralDarkGrey};
+  background-color: ${({ theme }) => theme.colors.neutralPaleGrey};
+  color: ${({ theme }) => theme.colors.neutralDarkGrey};
   text-align: center;
 `;
 
@@ -30,7 +30,7 @@ const CopyrightContent = styled.div`
   padding: 10px;
   justify-content: center;
   border-top: 1px solid #8080801f;
-  color: ${({theme})=>theme.colors.neutralDarkGrey};
+  color: ${({ theme }) => theme.colors.neutralDarkGrey};
 `;
 
 const CopyrightText = styled(Body)`
@@ -57,26 +57,30 @@ const ItemWrapper = styled.div`
 
 const SourceLink = styled.a`
   padding: 2px;
-  color: ${({theme})=>theme.colors.neutralDarkGrey};
+  color: ${({ theme }) => theme.colors.neutralDarkGrey};
   text-decoration: none;
-  border: 1px solid ${({theme})=>theme.colors.neutralDarkGrey};
+  border: 1px solid ${({ theme }) => theme.colors.neutralDarkGrey};
   border-radius: 5px;
   :hover {
-    background-color: ${({theme})=>theme.colors.neutralGrey};
+    background-color: ${({ theme }) => theme.colors.neutralGrey};
     color: white;
   }
 `;
 
-function Item(props) {
+interface ItemProps {
+  creator: string;
+  gitHubPage: string;
+}
+const Item = ({ creator, gitHubPage }: ItemProps) => {
   return (
     <ItemWrapper>
-      <ItemText>{props.creator}</ItemText>
-      <a href={props.gitHubPage}>
+      <ItemText>{creator}</ItemText>
+      <a href={gitHubPage}>
         <ItemImg src={gitHubIcon} />
       </a>
     </ItemWrapper>
   );
-}
+};
 
 export default function Footer() {
   return (
@@ -93,7 +97,7 @@ export default function Footer() {
       </ItemContent>
       <CopyrightContent>
         <CopyrightText>© 2020 Lidemy. All rights reserved.</CopyrightText>
-        <SourceLink href="https://github.com/corekang/sweetbreath">
+        <SourceLink href='https://github.com/corekang/sweetbreath'>
           <Body>Source Code.</Body>
         </SourceLink>
       </CopyrightContent>
