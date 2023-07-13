@@ -13,8 +13,20 @@ export default function SocialLogin() {
     <SocialLoginContainer>
       <SocialLoginTitle>社群登入</SocialLoginTitle>
       <SocialLoginSite>
-        <SiteLogo src={googleLogin} to='#' />
-        <SiteLogo src={facebookLogin} to='#' />
+        <SiteLogo
+          src={googleLogin}
+          style={{
+            filter: "grayscale(90%)",
+            cursor: "not-allowed"
+          }}
+        />
+        <SiteLogo
+          src={facebookLogin}
+          style={{
+            filter: "grayscale(90%)",
+            cursor: "not-allowed"
+          }}
+        />
       </SocialLoginSite>
     </SocialLoginContainer>
   );

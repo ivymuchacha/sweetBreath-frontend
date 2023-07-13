@@ -9,6 +9,8 @@ import { useViewInit } from "./hooks";
 
 import { getMe } from "@webAPI/userAPI";
 import { AppRouter, NavBarsInUse } from "./components";
+import { THEME } from "@constants/theme";
+import { ThemeProvider } from "styled-components";
 // import { getAuthToken, ScrollToTop } from "@utils";
 
 // function App() {
@@ -110,26 +112,29 @@ const AppProvider = ({ children }: { children: React.ReactElement }) => {
   const [isLoadingGetMe, setLoadingGetMe] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    if (getAuthToken()) {
-      getMe().then((response: any) => {
-        if (response.ok) {
-          setUser(response.data);
-          setLoadingGetMe(false);
-        }
-      });
-    } else {
-      setLoadingGetMe(false);
+  const fetchMe = async () => {
+    setLoadingGetMe(true);
+    const authToken = await getAuthToken();
+    if (authToken) {
+      const meRes = await getMe(authToken);
+      setUser(meRes.data);
     }
+    setLoadingGetMe(false);
+  };
+
+  useEffect(() => {
+    fetchMe();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
-      <LoadingContext.Provider
-        value={{ isLoading, setIsLoading, isLoadingGetMe }}>
-        <Router>{children}</Router>
-      </LoadingContext.Provider>
-    </AuthContext.Provider>
+    <ThemeProvider theme={THEME}>
+      <AuthContext.Provider value={{ user, setUser }}>
+        <LoadingContext.Provider
+          value={{ isLoading, setIsLoading, isLoadingGetMe }}>
+          <Router>{children}</Router>
+        </LoadingContext.Provider>
+      </AuthContext.Provider>
+    </ThemeProvider>
   );
 };
 

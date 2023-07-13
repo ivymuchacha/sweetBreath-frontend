@@ -1,5 +1,6 @@
 import { getAuthToken } from "@utils/authToken";
 import { BASE_API_URL } from "./constants";
+import axios, { AxiosError } from "axios";
 
 export const register = (fullName, username, email, password) => {
   return fetch(`${BASE_API_URL}/register`, {
@@ -16,31 +17,45 @@ export const register = (fullName, username, email, password) => {
   }).then((res) => res.json());
 };
 
-export const login = (username, password) => {
-  return fetch(`${BASE_API_URL}/login`, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json"
-    },
-    body: JSON.stringify({
+interface LoginProps {
+  username: string;
+  password: string;
+}
+export const login = async ({ username, password }: LoginProps) => {
+  try {
+    const data = {
       username,
       password
-    })
-  }).then((res) => res.json());
+    };
+    const res = await axios.post<{
+      ok: 0 | 1;
+      message?: string;
+      token?: string;
+    }>(`${BASE_API_URL}/login`, data, {
+      headers: { "content-type": "application/json" }
+    });
+    return res.data?.token;
+  } catch (error: unknown) {
+    throw new Error(
+      (
+        error as AxiosError<{
+          status: 0;
+          message: string;
+        }>
+      ).response?.data.message
+    );
+  }
 };
 
-export const getMe = () => {
-  const token = getAuthToken();
-  return fetch(`${BASE_API_URL}/me`, {
-    headers: {
-      authorization: `Bearer ${token}`
-    }
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      // console.log(data);
-      return data;
+export const getMe = async (authToken: string) => {
+  try {
+    const res = await axios.get(`${BASE_API_URL}/me`, {
+      headers: { authorization: `Bearer ${authToken}` }
     });
+    return res.data;
+  } catch (error: unknown) {
+    throw error;
+  }
 };
 
 export const getUser = () => {

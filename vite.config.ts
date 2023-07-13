@@ -17,5 +17,14 @@ export default defineConfig({
         rewrite: (path) => path.replace(BASE_API_URL, "")
       }
     }
+  },
+  resolve: {
+    alias: [
+      {
+        // this is required for the CSS modules
+        find: /^~(.*)$/,
+        replacement: "$1"
+      }
+    ]
   }
 });

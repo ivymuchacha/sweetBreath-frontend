@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router-dom";
-import { AboutPage, HomePage } from "../../pages";
+import { AboutPage, HomePage, LoginPage } from "../../pages";
 
 const AppRouter = () => {
   return (
@@ -10,10 +10,10 @@ const AppRouter = () => {
       <Route exact path='/about'>
         <AboutPage />
       </Route>
-      {/* <Route exact path='/login'>
+      <Route exact path='/login'>
         <LoginPage />
       </Route>
-      <Route exact path='/register'>
+      {/*  <Route exact path='/register'>
         <RegisterPage />
       </Route>
       <Route exact path='/products'>

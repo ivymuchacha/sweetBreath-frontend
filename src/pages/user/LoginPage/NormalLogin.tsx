@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { login, getMe } from "@webAPI/userAPI";
 import { setAuthToken } from "@utils/authToken";
@@ -18,44 +18,45 @@ export default function NormalLogin() {
   const { isLoading, setIsLoading } = useLoadingContext();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState<string>();
   const history = useHistory();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     setIsLoading(true);
-    setErrorMessage(null);
-    login(username, password).then((data) => {
-      if (data.ok === 0) {
-        setIsLoading(false);
-        setUsername("");
-        setPassword("");
-        return setErrorMessage(data.message);
-      }
-      setAuthToken(data.token);
+    setErrorMessage(undefined);
 
-      getMe().then((response) => {
-        if (response.ok !== 1) {
-          setIsLoading(false);
-          setAuthToken(null);
-          return setErrorMessage(response.toString());
-        }
-
-        setUser(response.data);
+    try {
+      const loginToken = await login({ username, password });
+      if (loginToken) {
+        setAuthToken(loginToken);
+        const getMeRes = await getMe(loginToken);
+        setUser(getMeRes.data);
         history.push("/");
-      });
-    });
+      }
+    } catch (error: unknown) {
+      setIsLoading(false);
+      setUsername("");
+      setPassword("");
+      const errorMessage = (error as { message?: string })?.message;
+      if (typeof errorMessage === "string") {
+        setErrorMessage(errorMessage);
+      }
+    }
   };
 
   const handleInputFocus = () => {
-    setErrorMessage(null);
+    setErrorMessage(undefined);
     setPassword("");
   };
 
   return (
     <>
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-      <LoginForm onSubmit={handleSubmit}>
+      <LoginForm
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}>
         <LoginInput
           value={username}
           onChange={(e) => setUsername(e.target.value)}

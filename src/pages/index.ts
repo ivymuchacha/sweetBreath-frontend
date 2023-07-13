@@ -1,6 +1,6 @@
 import HomePage from "./user/HomePage";
 import AboutPage from "./user/AboutPage";
-// import LoginPage from "./user/LoginPage";
+import LoginPage from "./user/LoginPage";
 // import RegisterPage from "./user/RegisterPage";
 // import ProductListPage from "./user/ProductListPage";
 // import ProductPage from "./user/ProductPage";
@@ -19,8 +19,8 @@ import AboutPage from "./user/AboutPage";
 
 export {
   HomePage,
-  AboutPage
-  // LoginPage,
+  AboutPage,
+  LoginPage
   // RegisterPage,
   // ProductListPage,
   // ProductPage,
