@@ -25,7 +25,7 @@ const NewsGroup = () => {
   return (
     <>
       {data.map((item) => (
-        <NewsItem item={item} />
+        <NewsItem key={item.itemId} item={item} />
       ))}
     </>
   );
