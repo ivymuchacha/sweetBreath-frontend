@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Input, H4 } from "@constants/style";
+import { Input, H4 } from "@/constants/style";
 import {
   BackButton,
   ButtonContainer,

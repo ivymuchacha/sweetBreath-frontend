@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H3, Input } from "@constants/style";
+import { H3, Input } from "@/constants/style";
 
 export const PageContainer = styled.div`
   * {
@@ -20,7 +20,7 @@ export const RegisterForm = styled.form`
   width: 350px;
 `;
 
-export const RegisterInput = styled(Input)`
+export const RegisterInput = styled(Input())`
   margin: 10px 0;
   width: 100%;
   font-size: ${({ theme }) => theme.fontSize.h5};

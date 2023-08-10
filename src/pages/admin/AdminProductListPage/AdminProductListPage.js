@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { scrollToAnchor } from "@components/Anchor";
-import { getCategoryAndProducts } from "@webAPI/productAPI";
+import { scrollToAnchor } from "@/components/Anchor";
+import { getCategoryAndProducts } from "@/webAPI/productAPI";
 import Products from "./Products";
 import {
   Content,
@@ -14,8 +14,8 @@ import {
   CategoryTitle,
   ProductList
 } from "./style";
-import { useLoadingContext } from "@contexts";
-import Loading from "@components/Loading";
+import { useLoadingContext } from "@/context";
+import Loading from "@/components/Loading";
 
 export default function AdminProductListPage() {
   const { isLoading, setIsLoading } = useLoadingContext;

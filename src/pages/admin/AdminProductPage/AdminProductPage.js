@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { addProduct, getCategory } from "@webAPI/productAPI";
+import { addProduct, getCategory } from "@/webAPI/productAPI";
 import {
   Content,
   Product,

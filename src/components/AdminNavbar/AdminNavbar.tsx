@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useHistory } from "react-router-dom";
-import { setAuthToken } from "@utils/authToken";
+import { setAuthToken } from "@/utils/authToken";
 import logout from "../icon/logout.png";
 import {
   NavbarContent,

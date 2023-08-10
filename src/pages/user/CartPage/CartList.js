@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
-import { theme } from "@constants/theme";
+import { THEME } from "@/constants/theme";
 import {
   CounterArea,
   CartItemContainer,

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import GoogleMapReact from "google-map-react";
 // import { Key } from "../../key.js"; // .gitignore
 // import styled from "styled-components";
-// import { theme } from "@constants/theme";
+// import { THEME } from "@/constants/theme";
 
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 // const AnyReactComponent = ({ text }) => (

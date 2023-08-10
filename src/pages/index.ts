@@ -1,14 +1,14 @@
 import HomePage from "./user/HomePage";
 import AboutPage from "./user/AboutPage";
 import LoginPage from "./user/LoginPage";
-// import RegisterPage from "./user/RegisterPage";
-// import ProductListPage from "./user/ProductListPage";
-// import ProductPage from "./user/ProductPage";
-// import NewsPage from "./user/NewsPage";
+import RegisterPage from "./user/RegisterPage";
+import ProductListPage from "./user/ProductListPage";
+import ProductPage from "./user/ProductPage";
+import NewsPage from "./user/NewsPage";
 // import ContactUsPage from "./user/ContactUsPage";
 // import CartPage from "./user/CartPage";
 // import CheckoutPage from "./user/CheckoutPage";
-// import MemberPage from "./user/MemberPage";
+import MemberPage from "./user/MemberPage";
 // import AdminPage from "./admin/AdminPage";
 // import AdminProductListPage from "./admin/AdminProductListPage";
 // import AdminProductPage from "./admin/AdminProductPage";
@@ -20,15 +20,15 @@ import LoginPage from "./user/LoginPage";
 export {
   HomePage,
   AboutPage,
-  LoginPage
-  // RegisterPage,
-  // ProductListPage,
-  // ProductPage,
-  // NewsPage,
+  LoginPage,
+  RegisterPage,
+  ProductListPage,
+  ProductPage,
+  NewsPage,
   // ContactUsPage,
   // CartPage,
   // CheckoutPage,
-  // MemberPage,
+  MemberPage
   // AdminPage,
   // AdminProductListPage,
   // AdminProductPage,

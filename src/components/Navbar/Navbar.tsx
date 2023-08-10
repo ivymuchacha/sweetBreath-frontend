@@ -6,7 +6,7 @@ import magnifying from "../icon/magnifying.png";
 import facebook from "../icon/facebook.png";
 import instagram from "../icon/instagram.png";
 import logout from "../icon/logout.png";
-import { setAuthToken } from "@utils/authToken";
+import { setAuthToken } from "@/utils/authToken";
 import { Logo, NavButton, IconButton, InstagramButton } from "./button";
 import {
   NavbarContent,

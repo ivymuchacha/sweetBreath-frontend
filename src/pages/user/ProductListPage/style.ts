@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MEDIA_QUERY, H1, H3, H5, BodyLarge } from "@constants/style";
+import { MEDIA_QUERY, H1, H3, H5, BodyLarge } from "@/constants/style";
 import { Link } from "react-router-dom";
 
 export { H1 };

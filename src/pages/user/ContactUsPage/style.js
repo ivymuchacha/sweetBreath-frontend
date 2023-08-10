@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H3, H5, InputLine, Textarea, MEDIA_QUERY } from "@constants/style";
+import { H3, H5, InputLine, Textarea, MEDIA_QUERY } from "@/constants/style";
 
 export const PageContainer = styled.div`
   * {

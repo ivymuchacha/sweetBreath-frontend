@@ -6,7 +6,7 @@ import {
   addFeature,
   editFeature,
   deleteFeature
-} from "@webAPI/productAPI";
+} from "@/webAPI/productAPI";
 import {
   Content,
   Product,
@@ -26,8 +26,8 @@ import Question from "./Question";
 import QuestionText from "./QuestionText";
 import QuestionSelect from "./QuestionSelect";
 import QuestionStatusSelect from "./QuestionStatusSelect";
-import { useLoadingContext } from "@contexts";
-import Loading from "@components/Loading";
+import { useLoadingContext } from "@/context";
+import Loading from "@/components/Loading";
 
 export default function AdminProductPage() {
   const { isLoading, setIsLoading } = useLoadingContext();

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { HashRouter as Router } from "react-router-dom";
-import Footer from "@components/Footer";
+import Footer from "@/components/Footer";
 
 import { AuthContext, LoadingContext } from "../context/contexts";
 import { User, useAuthContext } from "../context";
-import { getAuthToken } from "@utils/authToken";
+import { getAuthToken } from "@/utils/authToken";
 import { useViewInit } from "./hooks";
 
-import { getMe } from "@webAPI/userAPI";
+import { getMe } from "@/webAPI/user";
 import { AppRouter, NavBarsInUse } from "./components";
-import { THEME } from "@constants/theme";
+import { THEME } from "@/constants/theme";
 import { ThemeProvider } from "styled-components";
-// import { getAuthToken, ScrollToTop } from "@utils";
+// import { getAuthToken, ScrollToTop } from "@/utils";
 
 // function App() {
 //   const [isLoadingGetMe, setLoadingGetMe] = useState(true);

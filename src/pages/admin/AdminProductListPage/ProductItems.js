@@ -5,7 +5,7 @@ import {
   ProductDesc
 } from "./style";
 import PropTypes from "prop-types";
-import { getProduct } from "@webAPI/productAPI";
+import { getProduct } from "@/webAPI/productAPI";
 
 export default function ProductItems({ productId }) {
   const [features, setFeatures] = useState([]);

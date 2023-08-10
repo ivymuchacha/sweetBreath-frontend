@@ -8,7 +8,7 @@ import {
   MessageBoardEmpty
 } from "./style";
 import React, { useState, useEffect } from "react";
-import { Map } from "@components/Map/Map";
+import { Map } from "@/components/Map/Map";
 import { MessageForm } from "./MessageForm";
 import { MessageBoard } from "./MessageBoard";
 

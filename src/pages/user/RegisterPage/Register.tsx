@@ -5,31 +5,30 @@ import {
   ErrorMessage,
   SubmitLoading
 } from "./style";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { register } from "@webAPI/userAPI";
-import { setAuthToken } from "@utils/authToken";
-import { useLoadingContext } from "@contexts";
+import { register } from "@/webAPI/user";
+import { setAuthToken } from "@/utils/authToken";
+import { useLoadingContext } from "@/context/hooks";
 
 export default function Register() {
   const { isLoading, setIsLoading } = useLoadingContext();
-  const [fullname, setFullname] = useState("");
+  const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState<string | null>();
   const history = useHistory();
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     setIsLoading(true);
     setErrorMessage(null);
-    register(fullname, username, email, password).then((data) => {
+    register({ fullName, username, email, password }).then((data) => {
       if (data.ok !== 1) {
         setIsLoading(false);
-        setFullname("");
-        setUsername("");
-        setEmail("");
-        setPassword("");
+        // setFullName("");
+        // setUsername("");
+        // setEmail("");
+        // setPassword("");
         return setErrorMessage(data.message);
       }
       setIsLoading(false);
@@ -38,7 +37,7 @@ export default function Register() {
       window.location.reload();
     });
   };
-  const handleEmail = (value) => {
+  const handleEmail = (value: string) => {
     if (
       !/^\w+((-\w+)|(\.\w+))*[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/.test(
         value
@@ -59,10 +58,14 @@ export default function Register() {
     <>
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <ErrorMessage></ErrorMessage>
-      <RegisterForm onSubmit={handleSubmit}>
+      <RegisterForm
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}>
         <RegisterInput
-          value={fullname}
-          onChange={(e) => setFullname(e.target.value)}
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
           onFocus={handleInputFocus}
           placeholder='全名'
         />

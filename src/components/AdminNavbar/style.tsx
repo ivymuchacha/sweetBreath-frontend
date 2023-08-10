@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BodyLarge, MEDIA_QUERY } from "@constants/style";
+import { BodyLarge, MEDIA_QUERY } from "@/constants/style";
 import { Link } from "react-router-dom";
 import sweetBreath from "../icon/sweetBreath_line.png";
 import React from "react";

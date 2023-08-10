@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { H3, Input } from "@constants/style";
+import { H3, Input } from "@/constants/style";
 
 export const PageContainer = styled.div`
   * {
@@ -21,7 +21,7 @@ export const LoginForm = styled.form`
   width: 350px;
 `;
 
-export const LoginInput = styled(Input)`
+export const LoginInput = styled(Input())`
   margin: 10px 0;
   width: 100%;
   font-size: ${({ theme }) => theme.fontSize.h5};

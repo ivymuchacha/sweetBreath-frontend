@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MEDIA_QUERY } from "@constants/style";
+import { MEDIA_QUERY } from "@/constants/style";
 
 export const PageContainer = styled.div`
   * {
@@ -23,7 +23,7 @@ export const NewsGroup = styled.div`
   position: relative;
 `;
 
-export const NewsItem = styled.div`
+export const NewsItemBlock = styled.div`
   min-height: 200px;
   margin-bottom: 30px;
   background: ${(props) => props.theme.colors.neutralSnow};

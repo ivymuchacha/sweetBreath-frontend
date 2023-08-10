@@ -6,7 +6,7 @@ import {
   SettingButton
 } from "./style";
 import ProductItems from "./ProductItems";
-import { deleteProduct, getCategoryAndProducts } from "@webAPI/productAPI";
+import { deleteProduct, getCategoryAndProducts } from "@/webAPI/productAPI";
 import PropTypes from "prop-types";
 import React from "react";
 

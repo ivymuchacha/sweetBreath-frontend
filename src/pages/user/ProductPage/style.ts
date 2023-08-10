@@ -7,7 +7,7 @@ import {
   Caption1,
   Caption2,
   Button
-} from "@constants/style";
+} from "@/constants/style";
 
 export { Caption1, Caption2, Button };
 export const Content = styled.div`
@@ -181,7 +181,6 @@ export const Error = styled(H4)`
   display: flex;
   font-weight: bold;
   margin: 10px 0;
-  visibility: ${(props) => (props.errorMessage ? "visible" : "hidden")};
   color: ${(props) => props.theme.colors.uiWarning};
   justify-content: center;
 `;

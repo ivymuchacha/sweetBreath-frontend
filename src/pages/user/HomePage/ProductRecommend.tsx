@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import {
   Product,
   ProductLink,
@@ -8,10 +8,11 @@ import {
   RecommendContent,
   BlankCard
 } from "./style";
-import { useLoadingContext } from "@contexts/hooks";
-import Loading from "@components/Loading";
-import { getCategoryAndLaunchedProducts } from "@webAPI/product";
-import type { Product as ProductType } from "@webAPI/product/interface";
+import { useLoadingContext } from "@/context";
+import { getCategoryAndLaunchedProducts } from "@/webAPI/product";
+import type { Product as ProductType } from "@/webAPI/product/interface";
+import { ScaleLoader } from "react-spinners";
+import Loading from "@/components/Loading";
 
 interface RecommendItemProps {
   itemLink: string;
@@ -22,13 +23,15 @@ interface RecommendItemProps {
 function RecommendItem({ itemLink, itemImg, itemName }: RecommendItemProps) {
   return (
     <Product>
-      <ProductLink to={itemLink}>
-        <ProductImage src={itemImg}></ProductImage>
-        <Pointer>
-          <span>➜</span>
-        </Pointer>
-        <ProductName>{itemName}</ProductName>
-      </ProductLink>
+      <Suspense fallback={<ScaleLoader />}>
+        <ProductLink to={itemLink}>
+          <ProductImage src={itemImg}></ProductImage>
+          <Pointer>
+            <span>➜</span>
+          </Pointer>
+          <ProductName>{itemName}</ProductName>
+        </ProductLink>
+      </Suspense>
     </Product>
   );
 }

@@ -1,5 +1,6 @@
-import { getAuthToken } from "@utils/authToken";
-import { BASE_API_URL } from "./constants";
+import { getAuthToken } from "@/utils/authToken";
+import { BASE_API_URL } from "../constants";
+import axios from "axios";
 
 // 建立訂單
 export const createOrder = (orderDetail) => {
@@ -17,16 +18,19 @@ export const createOrder = (orderDetail) => {
 };
 
 // 取得特定買家訂單
-export const getUserOrders = (id) => {
+export const getUserOrders = async (id: number) => {
   const token = getAuthToken();
-  return fetch(`${BASE_API_URL}/order/${id}`, {
-    method: "GET",
-    headers: {
-      authorization: `Bearer ${token}`
-    }
-  })
-    .then((res) => res.json())
-    .then((data) => data);
+  try {
+    const res = await axios.get<{ ok: 0 | 1; data?: [] }>(
+      `${BASE_API_URL}/order/${id}`,
+      {
+        headers: { authorization: `Bearer ${token}` }
+      }
+    );
+    return res.data;
+  } catch (error: unknown) {
+    throw error;
+  }
 };
 
 // 管理員撈取所有訂單

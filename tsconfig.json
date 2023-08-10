@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     /* Language and Environment */
-    "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "target": "es2019" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
 
     /* Modules */
     "module": "commonjs" /* Specify what module code is generated. */,
@@ -13,11 +13,7 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "jsx": "react-jsx",
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@contexts/*": ["./src/context/*"],
-      "@constants/*": ["./src/constants/*"],
-      "@webAPI/*": ["./src/webAPI/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

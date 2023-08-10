@@ -14,8 +14,8 @@ import {
   addCategory,
   editCategory,
   deleteCategory
-} from "@webAPI/productAPI";
-import Loading from "@components/Loading";
+} from "@/webAPI/productAPI";
+import Loading from "@/components/Loading";
 import { useLoadingContext } from "../../../context";
 
 export default function AdminCategory() {

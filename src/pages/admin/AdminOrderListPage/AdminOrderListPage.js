@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { OrderList } from "./OrderList";
-import { H1 } from "@constants/style";
+import { H1 } from "@/constants/style";
 import {
   NoOrder,
   OrdersListWrapper,
@@ -9,9 +9,9 @@ import {
   OrderTableHeader,
   StatusButton
 } from "./style";
-import { getOrders, editOrder } from "@webAPI/orderAPI";
-import { useLoadingContext } from "@contexts";
-import Loading from "@components/Loading";
+import { getOrders, editOrder } from "@/webAPI/orderAPI";
+import { useLoadingContext } from "@/context";
+import Loading from "@/components/Loading";
 
 export default function AdminOrderListPage() {
   const { isLoading, setIsLoading } = useLoadingContext();

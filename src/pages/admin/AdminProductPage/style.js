@@ -8,7 +8,7 @@ import {
   BodyLarge,
   Input,
   Textarea
-} from "@constants/style";
+} from "@/constants/style";
 
 export const Content = styled.div`
   margin: 40px auto;

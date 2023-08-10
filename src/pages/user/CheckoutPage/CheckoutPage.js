@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import { useLoadingContext } from "@contexts";
-import Loading from "@components/Loading";
+import { useLoadingContext } from "@/context";
+import Loading from "@/components/Loading";
 import { CheckoutList } from "./CheckoutList";
 import { ProgressBar } from "./ProgressBar";
 import { OrderList } from "./OrderList";
@@ -12,8 +12,8 @@ import {
   CheckoutTitle,
   CheckoutContent
 } from "./style";
-import { getUser } from "@webAPI/userAPI";
-import { createOrder } from "@webAPI/orderAPI";
+import { getUser } from "@/webAPI/user";
+import { createOrder } from "@/webAPI/orderAPI";
 
 export default function CheckoutPage() {
   const { isLoading, setIsLoading } = useLoadingContext();

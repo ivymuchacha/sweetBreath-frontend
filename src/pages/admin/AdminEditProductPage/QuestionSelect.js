@@ -1,7 +1,7 @@
 import { ProductInfo, AdminName, Selector } from "./style";
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { getCategory } from "@webAPI/productAPI";
+import { getCategory } from "@/webAPI/productAPI";
 
 export default function QuestionSelect({ name, title, value, handleChange }) {
   const [category, setCategory] = useState([]);

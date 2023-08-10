@@ -1,5 +1,5 @@
-import AdminNavbar from "@components/AdminNavbar/AdminNavbar";
-import Navbar from "@components/Navbar/Navbar";
+import AdminNavbar from "@/components/AdminNavbar/AdminNavbar";
+import Navbar from "@/components/Navbar/Navbar";
 import { User } from "../../context";
 
 interface NavBarsInUseProps {

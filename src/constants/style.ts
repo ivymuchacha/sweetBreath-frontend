@@ -61,7 +61,9 @@ export const Caption2 = styled.div`
   font-weight: 600;
 `;
 
-export const Input = styled.input`
+export const Input = <
+  Props extends Record<string, any> = any
+>() => styled.input<Props>`
   margin: 20px 40px;
   padding: 12px;
   border-radius: 4px;

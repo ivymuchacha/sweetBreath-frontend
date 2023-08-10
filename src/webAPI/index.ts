@@ -1,3 +1,3 @@
-export * from "./orderAPI";
+export * from "./order";
 export * from "./product";
-export * from "./userAPI";
+export * from "./user";

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { H1, H4, H5, BodyLarge, MEDIA_QUERY } from "@constants/style";
+import { H1, H4, H5, BodyLarge, MEDIA_QUERY } from "@/constants/style";
 
 export const CheckoutContainer = styled.div`
   max-width: 1000px;

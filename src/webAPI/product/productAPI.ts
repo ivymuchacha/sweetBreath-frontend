@@ -1,7 +1,7 @@
 import axios from "axios";
-import { getAuthToken } from "@utils/authToken";
+import { getAuthToken } from "@/utils/authToken";
 import { BASE_API_URL } from "../constants";
-import { Category } from "./interface";
+import { Category, CategoryWithProduct, ProductWithFeature } from "./interface";
 import { APIRes } from "../interface";
 
 ///// 產品分類管理
@@ -11,10 +11,12 @@ import { APIRes } from "../interface";
 //   return fetch(`${BASE_API_URL}/category`).then((res) => res.json());
 // };
 
-export const getCategory = () => {
+export const getCategory = async () => {
   try {
-    const res = axios.get(`${BASE_API_URL}/category`);
-    return res;
+    const res = await axios.get<{ data: Category[]; ok: 1 | 0 }>(
+      `${BASE_API_URL}/category`
+    );
+    return res.data;
   } catch (e: unknown) {
     console.log(e);
   }
@@ -27,7 +29,7 @@ export const getCategoryAndProducts = () => {
 
 export const getCategoryAndLaunchedProducts = async () => {
   try {
-    const res = await axios.get<APIRes<Category[]>>(
+    const res = await axios.get<APIRes<CategoryWithProduct[]>>(
       `${BASE_API_URL}/category/product`
     );
     return res.data.data;
@@ -37,10 +39,12 @@ export const getCategoryAndLaunchedProducts = async () => {
 };
 
 // 撈取單一商品規格 API
-export const getProduct = (productId: number) => {
+export const getProduct = async (productId: number) => {
   try {
-    const res = axios.get(`${BASE_API_URL}/product/${productId}`);
-    return res;
+    const res = await axios.get<{ data: ProductWithFeature; ok: 1 | 0 }>(
+      `${BASE_API_URL}/product/${productId}`
+    );
+    return res.data;
   } catch (e: unknown) {
     console.log(e);
   }

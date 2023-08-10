@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { login, getMe } from "@webAPI/userAPI";
-import { setAuthToken } from "@utils/authToken";
+import { login, getMe } from "@/webAPI/user";
+import { setAuthToken } from "@/utils/authToken";
 import {
   LoginForm,
   LoginInput,
@@ -14,6 +14,7 @@ import {
 import { useAuthContext, useLoadingContext } from "../../../context";
 
 export default function NormalLogin() {
+  // useTransition
   const { setUser } = useAuthContext();
   const { isLoading, setIsLoading } = useLoadingContext();
   const [username, setUsername] = useState("");
@@ -24,7 +25,6 @@ export default function NormalLogin() {
   const handleSubmit = async () => {
     setIsLoading(true);
     setErrorMessage(undefined);
-
     try {
       const loginToken = await login({ username, password });
       if (loginToken) {
@@ -35,8 +35,6 @@ export default function NormalLogin() {
       }
     } catch (error: unknown) {
       setIsLoading(false);
-      setUsername("");
-      setPassword("");
       const errorMessage = (error as { message?: string })?.message;
       if (typeof errorMessage === "string") {
         setErrorMessage(errorMessage);

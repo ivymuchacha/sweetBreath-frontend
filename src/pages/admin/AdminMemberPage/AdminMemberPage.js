@@ -1,11 +1,11 @@
-import { H1 } from "@constants/style";
+import { H1 } from "@/constants/style";
 import React, { useState, useEffect } from "react";
 import { Content, MemberSection, MemberList } from "./style";
 import SearchBar from "./SearchBar";
 import Members from "./Members";
-import { getAllUser, editUserStatus } from "@webAPI/userAPI";
-import { useLoadingContext } from "@contexts";
-import Loading from "@components/Loading";
+import { getAllUser, editUserStatus } from "@/webAPI/user";
+import { useLoadingContext } from "@/context";
+import Loading from "@/components/Loading";
 
 export default function AdminMemberPage() {
   const { isLoading, setIsLoading } = useLoadingContext();

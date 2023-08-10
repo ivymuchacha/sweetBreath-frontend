@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { theme } from "@constants/theme";
-import { H5, MEDIA_QUERY } from "@constants/style";
+import { THEME } from "@/constants/theme";
+import { H5, MEDIA_QUERY } from "@/constants/style";
 
 export const OrdersListWrapper = styled.div`
   max-width: 1200px;

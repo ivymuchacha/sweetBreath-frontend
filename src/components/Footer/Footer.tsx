@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { H4, BodyLarge, Body } from "@constants/style";
+import { H4, BodyLarge, Body } from "@/constants/style";
 import gitHubIcon from "../icon/gitHub.png";
 
 const FooterContent = styled.div`

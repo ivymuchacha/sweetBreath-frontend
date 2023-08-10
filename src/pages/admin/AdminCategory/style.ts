@@ -10,8 +10,7 @@ import {
   BodyLarge,
   Input,
   Textarea
-} from "@constants/style";
-import { theme } from "@constants/theme";
+} from "@/constants/style";
 
 export { H1, H3, Button, Body, BodyLarge, Textarea };
 
@@ -69,7 +68,7 @@ export const CategoryNameLink = styled(Link)`
 
 export const Setting = styled.div``;
 
-export const SettingInput = styled(Input)`
+export const SettingInput = styled(Input())`
   color: ${({ theme }) => theme.colors.neutralBlack};
   font-size: ${({ theme }) => theme.fontSize.bodyLarge};
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutralLightGrey};

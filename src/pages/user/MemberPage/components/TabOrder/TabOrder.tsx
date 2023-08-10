@@ -11,27 +11,24 @@ import {
   OrderStatus,
   IsDoneLabel,
   IsPaidLabel,
-  IsSentLabel,
-} from "./style";
+  IsSentLabel
+} from "../../style";
 import { Link } from "react-router-dom";
-import React from "react";
+import { DATE_OPTIONS } from "./constants";
+import { Order, OrderItem } from "@/webAPI/order/interface";
 
-export default function TabOrder({ order, orderItems }) {
-  const options = {
-    // day: "numeric", // (e.g., 1)
-    // month: "short", // (e.g., Oct)
-    // year: "numeric", // (e.g., 2019)
-    hour: "2-digit", // (e.g., 02)
-    minute: "2-digit", // (e.g., 02)
-    hour12: true, // 24 小時制
-    timeZone: "Asia/Taipei", // "America/New_York"
-  };
+interface TabOrderProps {
+  order: Order;
+  orderItems: OrderItem[];
+}
+
+const TabOrder = ({ order, orderItems }: TabOrderProps) => {
   return (
     <TabOrderGroup>
       <TabOrderItem>
         <TabOrderTop>
           訂單日期｜
-          {new Date(order.createdAt).toLocaleDateString("zh-TW", options)}
+          {new Date(order.createdAt).toLocaleDateString("zh-TW", DATE_OPTIONS)}
           <br />
           訂單號碼｜{order.order_number}
           <br />
@@ -51,14 +48,10 @@ export default function TabOrder({ order, orderItems }) {
         </TabOrderTop>
         <TabOrderCenter>
           <TabOrderProductTitle>訂單內容｜</TabOrderProductTitle>
-          {orderItems.map((orderItems) => (
-            <TabOrderProduct
-              orderItems={orderItems}
-              key={orderItems.product_id}
-              id="orderProduct"
-            >
+          {orderItems?.map((orderItems) => (
+            <TabOrderProduct key={orderItems.product_id} id='orderProduct'>
               <TabOrderProductImg>
-                <Link to={"/product/" + orderItems.product_id} target="_blank">
+                <Link to={"/product/" + orderItems.product_id} target='_blank'>
                   <img
                     src={orderItems.product_image}
                     alt={orderItems.product_name}
@@ -66,7 +59,7 @@ export default function TabOrder({ order, orderItems }) {
                 </Link>
               </TabOrderProductImg>
               <b>
-                <Link to={"/product/" + orderItems.product_id} target="_blank">
+                <Link to={"/product/" + orderItems.product_id} target='_blank'>
                   {orderItems.product_name}
                   {orderItems.product_feature}
                 </Link>
@@ -76,7 +69,7 @@ export default function TabOrder({ order, orderItems }) {
               {orderItems.product_price * orderItems.product_quantity}
             </TabOrderProduct>
           ))}
-          <TabOrderProductTotal id="totalPrize">
+          <TabOrderProductTotal id='totalPrize'>
             訂單金額｜<b>NT$ {order.total}</b>
           </TabOrderProductTotal>
         </TabOrderCenter>
@@ -91,4 +84,6 @@ export default function TabOrder({ order, orderItems }) {
       </TabOrderItem>
     </TabOrderGroup>
   );
-}
+};
+
+export default TabOrder;

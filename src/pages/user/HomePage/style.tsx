@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BodyLarge, MEDIA_QUERY, H2 } from "@constants/style";
+import { BodyLarge, MEDIA_QUERY, H2 } from "@/constants/style";
 import { Link } from "react-router-dom";
 
 export const HomePageContent = styled.div`
@@ -24,7 +24,7 @@ export const BannerContent = styled.div`
 `;
 
 export const BannerImgContent = styled.div`
-  max-height: 500px;
+  max-height: 300px;
 `;
 
 export const BannerImg = styled.img`

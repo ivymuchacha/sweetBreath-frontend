@@ -1,5 +1,14 @@
 import { Route, Switch } from "react-router-dom";
-import { AboutPage, HomePage, LoginPage } from "../../pages";
+import {
+  AboutPage,
+  HomePage,
+  LoginPage,
+  MemberPage,
+  NewsPage,
+  ProductListPage,
+  ProductPage,
+  RegisterPage
+} from "../../pages";
 
 const AppRouter = () => {
   return (
@@ -13,7 +22,7 @@ const AppRouter = () => {
       <Route exact path='/login'>
         <LoginPage />
       </Route>
-      {/*  <Route exact path='/register'>
+      <Route exact path='/register'>
         <RegisterPage />
       </Route>
       <Route exact path='/products'>
@@ -25,6 +34,11 @@ const AppRouter = () => {
       <Route exact path='/news'>
         <NewsPage />
       </Route>
+      {/*
+      <Route exact path='/product/:id'>
+        <ProductPage />
+      </Route>
+
       <Route exact path='/contact'>
         <ContactUsPage />
       </Route>
@@ -33,14 +47,14 @@ const AppRouter = () => {
       </Route>
       <Route exact path='/checkout'>
         <CheckoutPage />
-      </Route>
+  </Route>*/}
       <Route exact path='/member/:target'>
         <MemberPage />
       </Route>
       <Route exact path='/member'>
         <MemberPage />
       </Route>
-      <Route exact path='/admin/'>
+      {/*   <Route exact path='/admin/'>
         <AdminPage />
       </Route>
       <Route exact path='/admin/products'>
