@@ -6,7 +6,7 @@ import ProductListPage from "./user/ProductListPage";
 import ProductPage from "./user/ProductPage";
 import NewsPage from "./user/NewsPage";
 // import ContactUsPage from "./user/ContactUsPage";
-// import CartPage from "./user/CartPage";
+import CartPage from "./user/CartPage";
 // import CheckoutPage from "./user/CheckoutPage";
 import MemberPage from "./user/MemberPage";
 // import AdminPage from "./admin/AdminPage";
@@ -26,7 +26,7 @@ export {
   ProductPage,
   NewsPage,
   // ContactUsPage,
-  // CartPage,
+  CartPage,
   // CheckoutPage,
   MemberPage
   // AdminPage,

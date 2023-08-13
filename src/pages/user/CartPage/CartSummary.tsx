@@ -1,5 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
 import {
   ButtonContainer,
   CartSummaryContainer,
@@ -8,7 +6,11 @@ import {
   OrderTotalPrice
 } from "./style";
 
-export function CartSummary({ totalPrice }) {
+interface CartSummaryProps {
+  totalPrice: number;
+}
+
+const CartSummary = ({ totalPrice }: CartSummaryProps) => {
   return (
     <CartSummaryContainer>
       <h2>訂單摘要</h2>
@@ -24,12 +26,10 @@ export function CartSummary({ totalPrice }) {
         總付款金額：<b>NT$ {totalPrice}</b>
       </OrderTotalPrice>
       <ButtonContainer>
-        <SubmitButton to="/checkout">前往結帳</SubmitButton>
+        <SubmitButton to='/checkout'>前往結帳</SubmitButton>
       </ButtonContainer>
     </CartSummaryContainer>
   );
-}
-
-CartSummary.propTypes = {
-  totalPrice: PropTypes.number
 };
+
+export default CartSummary;

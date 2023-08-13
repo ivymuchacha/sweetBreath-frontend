@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import {
   AboutPage,
+  CartPage,
   HomePage,
   LoginPage,
   MemberPage,
@@ -34,17 +35,14 @@ const AppRouter = () => {
       <Route exact path='/news'>
         <NewsPage />
       </Route>
-      {/*
-      <Route exact path='/product/:id'>
-        <ProductPage />
-      </Route>
-
-      <Route exact path='/contact'>
-        <ContactUsPage />
-      </Route>
       <Route exact path='/cart'>
         <CartPage />
       </Route>
+      {/*
+      <Route exact path='/contact'>
+        <ContactUsPage />
+      </Route>
+
       <Route exact path='/checkout'>
         <CheckoutPage />
   </Route>*/}

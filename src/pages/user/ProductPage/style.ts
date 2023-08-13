@@ -177,7 +177,7 @@ export const AddToCart = styled.div`
   }
 `;
 
-export const Error = styled(H4)`
+export const ErrorHint = styled(H4)`
   display: flex;
   font-weight: bold;
   margin: 10px 0;

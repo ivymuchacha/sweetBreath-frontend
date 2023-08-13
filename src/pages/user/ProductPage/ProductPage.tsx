@@ -16,14 +16,16 @@ import {
   ProductName,
   AddToLove,
   ProductContent,
-  Error,
+  ErrorHint,
   AddToCart,
   Button
 } from "./style";
 import { Category, ProductWithFeature } from "@/webAPI/product/interface";
 import type { Feature as FeatureType } from "./interface";
 import FeatureItem from "./FeatureItem";
-import useCart from "@/hook/useCart";
+import { CartUtils, useCart } from "@/hook/useCart";
+
+const CART_PAGE_URL = "/cart";
 
 export default function ProductPage() {
   const { isLoading, setIsLoading } = useLoadingContext();
@@ -34,7 +36,7 @@ export default function ProductPage() {
     useState<Omit<ProductWithFeature, "Features">>();
   const [feature, setFeature] = useState<FeatureType[]>();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const { onCartChange } = useCart();
+  const { updateCartItem } = useCart();
 
   const fetchProduct = useCallback(async () => {
     setIsLoading(true);
@@ -88,10 +90,13 @@ export default function ProductPage() {
     if (!feature || !product) return;
 
     let addFeatureList = feature.filter((item) => item.count !== 0);
-    if (addFeatureList.length === 0) return setErrorMessage("沒有可新增項目");
+    if (addFeatureList.length === 0) {
+      setErrorMessage("沒有可新增項目");
+      return;
+    }
 
-    addFeatureList.forEach((newItem) => {
-      onCartChange({
+    for (let newItem of addFeatureList) {
+      const item = {
         productId: product.id,
         productName: product.name,
         image: product.image,
@@ -103,8 +108,29 @@ export default function ProductPage() {
         subTotal: newItem.promo_price
           ? newItem.count * newItem.promo_price
           : newItem.count * newItem.price
-      });
-    });
+      };
+      try {
+        updateCartItem({
+          item,
+          validator: ({ item, cart }) => {
+            if (cart && CartUtils.isItemExist({ cart, item })) {
+              if (
+                window.confirm(
+                  "您的購物車已經有相同物品囉！要前往購物車頁面修改嗎？"
+                )
+              ) {
+                history.push(CART_PAGE_URL);
+              }
+              throw new Error(`${item.productName}_${item.feature} duplicate`);
+            }
+          }
+        });
+      } catch {
+        return;
+      }
+    }
+
+    history.push(CART_PAGE_URL);
   };
 
   return (
@@ -148,7 +174,7 @@ export default function ProductPage() {
                     onPlus={() => handlePlus(featureItem.id)}
                   />
                 ))}
-                {errorMessage && <Error>{errorMessage}</Error>}
+                {errorMessage && <ErrorHint>{errorMessage}</ErrorHint>}
                 <AddToCart>
                   <Button onClick={handleAddToCart}>加入購物車</Button>
                 </AddToCart>
